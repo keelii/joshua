@@ -1,0 +1,94 @@
+@import './_grid-col.scss';
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1140px;
+
+    @media screen and (min-width: $breakpoint-sm) {
+        max-width: 540px;
+    }
+    @media screen and (min-width: $breakpoint-md) {
+        max-width: 720px;
+    }
+    @media screen and (min-width: $breakpoint-lg) {
+        max-width: 960px;
+    }
+    @media screen and (min-width: $breakpoint-lg) {
+        max-width: 1140px;
+    }
+}
+
+/*csslint regex-selectors:false, known-properties:false, duplicate-properties:false*/
+
+.row {
+    letter-spacing: -0.31em; /* Webkit: collapse white-space between units */
+    text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */
+
+    /*
+    Sets the font stack to fonts known to work properly with the above letter
+    and word spacings. See: https://github.com/pure-css/pure/issues/41/
+
+    The following font stack makes Pure Grids work on all known environments.
+
+    * FreeSans: Ships with many Linux distros, including Ubuntu
+
+    * Arimo: Ships with Chrome OS. Arimo has to be defined before Helvetica and
+      Arial to get picked up by the browser, even though neither is available
+      in Chrome OS.
+
+    * Droid Sans: Ships with all versions of Android.
+
+    * Helvetica, Arial, sans-serif: Common font stack on OS X and Windows.
+    */
+    font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+
+    /* Use flexbox when possible to avoid `letter-spacing` side-effects. */
+    display: flex;
+    flex-flow: row wrap;
+
+    /* Prevents distributing space between rows */
+    align-content: flex-start;
+
+    &:not(.no-gutter) {
+        margin: 0 (-1 * $gutter);
+    }
+}
+
+/* IE10 display: -ms-flexbox (and display: flex in IE 11) does not work inside a table; fall back to block and rely on font hack */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	table .row {
+		display: block;
+	}
+}
+
+/* Opera as of 12 on Windows needs word-spacing.
+   The ".opera-only" selector is used to prevent actual prefocus styling
+   and is not required in markup.
+*/
+.opera-only :-o-prefocus,
+.row {
+    word-spacing: -0.43em;
+}
+
+.row > *, .col {
+    display: inline-block;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+
+    padding: 0 $gutter;
+    margin-bottom: $gutter * 2;
+}
+.row.no-gutter > *, .row.no-gutter .col {
+    padding: 0; margin: 0;
+}
+
+/*
+Resets the font family back to the OS/browser's default sans-serif font,
+this the same font stack that Normalize.css sets for the `body`.
+*/
+.row [class *= "col"] {
+    font-family: sans-serif;
+}

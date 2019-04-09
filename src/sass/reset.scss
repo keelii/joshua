@@ -1,0 +1,9 @@
+* { box-sizing: border-box; }
+
+ul, ol { list-style: none; margin: 0; padding: 0; }
+
+
+fieldset {
+    border: 1px solid $gray-color;
+    margin-bottom: $line-height;
+}

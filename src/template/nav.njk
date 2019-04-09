@@ -1,0 +1,26 @@
+{% macro navItem(name, active) %}
+    <a {% if name == active %}class="current"{% endif %} 
+        data-href="./page-{{ name }}.html">{{ name | title }}</a>
+{% endmacro %}
+
+<nav class="halign">
+    {{ navItem('grid', active) }}
+    <span>◈</span>
+    {{ navItem('button', active) }}
+    <span>◈</span>
+    {{ navItem('input', active) }}
+    <span>◈</span>
+    {{ navItem('form', active) }}
+</nav>
+<style>
+nav span { color: #ccc; }
+</style>
+<script>
+(function() {
+    document.querySelectorAll('a').forEach(a => {
+        if (!a.classList.contains('current')) {
+            a.href = a.getAttribute('data-href')
+        }
+    })
+})()
+</script>

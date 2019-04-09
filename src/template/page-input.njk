@@ -1,0 +1,50 @@
+{% extends "layout.njk" %}
+
+{% block body %}
+
+{% set active = 'input' %}
+{% include "nav.njk" %}
+
+<fieldset>
+    <legend>Input: text</legend>
+
+    {% for types in input.text | slice(4) %}
+        <div class="row">
+            {%- for item in types %}
+                <div>
+                    <input type="{{ item }}" placeholder="{{ item }}"/>
+                </div>
+            {%- endfor %}
+        </div>
+    {% endfor %}
+</fieldset>
+
+<fieldset>
+    <legend>Input: text @small</legend>
+
+    {% for types in input.text | slice(4) %}
+        <div class="row">
+            {%- for item in types %}
+                <div>
+                    <input class="small" type="{{ item }}" placeholder="{{ item }}"/>
+                </div>
+            {%- endfor %}
+        </div>
+    {% endfor %}
+</fieldset>
+
+<fieldset>
+    <legend>Input: text .full-width</legend>
+
+    {% for types in input.text | slice(4) %}
+        <div class="row">
+            {%- for item in types %}
+                <div>
+                    <input class="full-width" type="{{ item }}" placeholder="{{ item }}"/>
+                </div>
+            {%- endfor %}
+        </div>
+    {% endfor %}
+</fieldset>
+
+{% endblock body %}

@@ -1,0 +1,13 @@
+.nav, nav {
+    > * {
+        margin: 0 0.5em;
+        border-bottom: 3px solid #fff;
+        text-decoration: none;
+    }
+    .current, .current:hover {
+        cursor: default;
+        text-decoration: none;
+        border-bottom-color: $primary-color;
+        color: $primary-color
+    }
+}

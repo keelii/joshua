@@ -1,0 +1,211 @@
+{% extends "layout.njk" %}
+
+{% block body %}
+
+{% set active = 'grid' %}
+{% include "nav.njk" %}
+
+{% macro column(numerator, denominator, bp) %}
+    {% if numerator == 1 and not denominator and not bp %}
+    <div class="{{ grid.col }}-{{ numerator }}">
+        <div class="demo">
+            {{ grid.col }}-{{ numerator }}
+            <small>.{{ grid.col }}-{{ numerator }}</small>
+        </div>
+    </div>
+    {% else %}
+    <div class="{{ grid.col }}-{{ numerator }}-{{ denominator }}">
+        <div class="demo">{{ numerator }}/{{ denominator }}
+            <small>.{{ grid.col }}-{{ numerator }}-{{ denominator }}</small>
+        </div>
+    </div>
+    {% endif %}
+{% endmacro %}
+
+<style>
+    small { color: #999; font-size: 12px; white-space: nowrap; }
+    .demo {
+        text-align: center;
+        background: #eee;
+        border-radius: 5px;
+        padding: 1em 0;
+    }
+    .demo .demo { background: #fafafa; }
+    .demo p { margin: 0; }
+    fieldset {
+        border-radius: 5px;
+    }
+    legend {
+        font-size: 2em;
+    }
+</style>
+
+
+<fieldset>
+    <legend>Breakpoints</legend>
+    <div class="breakpoint-tips nav halign">
+        {% for bp in grid.breakpoints %}
+            <span class="{{ bp.prefix }}">{{ bp.name}}({{ bp.prefix | selector }})</span>
+        {% endfor %}
+    </div>
+    <style>
+        .breakpoint-tips span {
+            display: none;
+            padding: 0.5em 2em;
+            background: #eee;
+        }
+        @media screen and (min-width: 35.5em) {
+            .sm { display: inline-block!important; }
+        }
+        @media screen and (min-width: 48em) {
+            .md { display: inline-block!important; }
+        }
+        @media screen and (min-width: 64em) {
+            .lg { display: inline-block!important; }
+        }
+        @media screen and (min-width: 80em) {
+            .xl { display: inline-block!important; }
+        }
+    </style>
+</fieldset>
+
+<fieldset>
+    <legend>Basics: 5 columns</legend>
+    <div class="{{ grid.row }}">
+        {% for item in range(5) %}
+            {{ column(1, 5) }}
+        {% endfor %}
+        {{ column(2, 5) }}
+        {{ column(2, 5) }}
+        {{ column(1, 5) }}
+       
+        {{ column(3, 5) }}
+        {{ column(1, 5) }}
+        {{ column(1, 5) }}
+
+        {{ column(3, 5) }}
+        {{ column(2, 5) }}
+
+        {{ column(4, 5) }}
+        {{ column(1, 5) }}
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Basics: 12 columns</legend>
+    <div class="{{ grid.row }}">
+        {{ column(1) }}
+        {% for item in range(11) %}
+            {{ column(item + 1, 12) }}
+            {{ column(12 - item - 1, 12) }}
+        {% endfor %}
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Nested grids</legend>
+    <div class="{{ grid.row }}">
+        <div class="col-1-2">
+            <div class="demo">
+                left
+                <div class="row">
+                    {{ column(1, 3) }}
+                    {{ column(1, 3) }}
+                    {{ column(1, 3) }}
+                    {{ column(1, 2) }}
+                    {{ column(1, 2) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-1-2">
+            <div class="demo">
+                right
+                <div class="row">
+                    {{ column(1, 3) }}
+                    {{ column(1, 3) }}
+                    {{ column(1, 3) }}
+                    {{ column(1, 2) }}
+                    {{ column(1, 2) }}
+                </div>
+            </div>
+        </div>        
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Equal columns:</legend>
+    <div class="{{ grid.row }}">
+    {% for item in [1, 2, 3, 4, 5, 6, 12] %}
+        {% set r = (12/item) if (12 % item == 0) else 5  %}
+        {% for col in range(r) %}
+            {{ column(1, r) }}
+        {% endfor %}
+    {% endfor %}
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>No Gutters: .no-gutter</legend>
+    <div class="{{ grid.row }} no-gutter">
+    {% for item in [1, 2, 3, 4, 5, 6, 12] %}
+        {% set r = (12/item) if (12 % item == 0) else 5  %}
+        {% for col in range(r) %}
+            {{ column(1, r) }}
+        {% endfor %}
+    {% endfor %}
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Responsive columns:</legend>
+    <div class="{{ grid.row }}">
+    {% for item in range(6) %}
+        <div class="{{ grid.col }}-sm-1 {{ grid.col }}-md-1-2 {{ grid.col }}-lg-1-3 {{ grid.col }}-xl-1-6 {{ grid.col }}-1-3">
+            <div class="demo demo1">
+                <p><span>default</span> <small>.{{ grid.col }}-1-3</small></p>
+                <p><span>small</span> <small>.{{ grid.col }}-sm-1</small></p>
+                <p><span>medium</span> <small>.{{ grid.col }}-md-1-2</small></p>
+                <p><span>large</span> <small>.{{ grid.col }}-lg-1-3</small></p>
+                <p><span>x-large</span> <small>.{{ grid.col }}-xl-1-6</small></p>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+    <style>
+    .demo1 p {
+        text-align: left;
+    }
+    .demo1 p * {
+        display: inline-block;
+    }
+    .demo1 p span {
+        width: 4em;
+        text-align: right;
+        margin-left: 1em;
+        text-decoration: underline;
+    }
+    @media screen and (min-width: 35.5em) {
+        .demo1 p span {
+            margin-left: 13em;
+        }
+    }
+    @media screen and (min-width: 48em) {
+        .demo1 p span {
+            margin-left: 7em;
+        }
+    }
+    @media screen and (min-width: 64em) {
+        .demo1 p span {
+            margin-left: 8em;
+        }
+    }
+    @media screen and (min-width: 80em) {
+        .demo1 p span {
+            margin-left: 1em;
+        }
+    }
+    </style>
+</fieldset>
+
+{% endblock body %}

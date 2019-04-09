@@ -1,0 +1,60 @@
+{% extends "layout.njk" %}
+
+{% block body %}
+
+{% set active = 'button' %}
+{% include "nav.njk" %}
+
+{% macro col(num) %}
+    {% for item in range(num) %}
+    <div> <div class="demo">col {{ item + 1 }}</div> </div>
+    {% endfor %}
+{% endmacro %}
+
+<fieldset>
+    <legend>Buttons: [type="input"]</legend>
+    <p>
+    {% for type in input.button %}
+        <input type="{{ type }}" value="{{ type }}">
+    {% endfor %}
+    </p>
+</fieldset>
+
+<fieldset>
+    <legend>Buttons: a.button</legend>
+    <p>
+    {% for type in input.button %}
+        <button>{{ type }}</button>
+    {% endfor %}
+    {% for type in input.button %}
+        <a class="button" href="#none">{{ type }}</a>
+    {% endfor %}
+    </p>
+</fieldset>
+
+<fieldset>
+    <legend>Buttons: .small</legend>
+    <p>
+    {% for type in input.button %}
+        <input class="small" type="{{ type }}" value="{{ type }}">
+    {% endfor %}
+    {% for type in input.button %}
+        <input type="{{ type }}" value="{{ type }}">
+    {% endfor %}
+    </p>
+</fieldset>
+
+<fieldset>
+    <legend>Buttons: .outline</legend>
+    <p>
+    {% for type in input.button %}
+        <input class="outline" type="{{ type }}" value="{{ type }}">
+    {% endfor %}
+    {% for type in input.button %}
+        <input class="small outline" type="{{ type }}" value="{{ type }}">
+    {% endfor %}
+    </p>
+</fieldset>
+
+
+{% endblock body %}

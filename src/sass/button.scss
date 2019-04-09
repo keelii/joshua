@@ -1,0 +1,57 @@
+@import './mixin.scss';
+
+button, .button, 
+[type=reset],
+[type=button],
+[type=submit] {
+    // line-height: $line-height * 2;
+    margin-bottom: $line-height;
+    height: $line-height * 2;
+    padding: $line-height / 2 $line-height * 2;
+    outline: none;
+    color: $bg-color;
+    font-size: $font-size;
+    background: $primary-color;
+    text-decoration: none;
+    
+    @include border(1.5px, $primary-color);
+    @include transition;
+
+    font-family: inherit;
+
+    &:hover, &:focus {
+        opacity: .9;
+        outline: none;
+    }
+    &:active {
+        // opacity: .7
+        // outline: none;
+        // border-style: solid;
+        // transform: scale(0.99);
+    }
+    &[disabled] {
+        opacity: 0.8;
+        cursor: not-allowed;
+    }
+    &.outline {
+        color: $primary-color;
+        background: none;
+
+        &:hover, &:focus {
+            // color: $bg-color;
+            background: none;
+        }
+    }
+}
+
+button, .button, 
+[type=reset],
+[type=button],
+[type=submit] {
+    &.small {
+        // padding: $line-height / 4;
+        padding: $line-height / 6 $line-height;
+        height: auto;
+        margin-bottom: $line-height / 2;
+    }
+}

@@ -1,0 +1,35 @@
+.valign {
+    display: flex;
+    align-items: center;
+}
+.halign {
+    display: flex;
+    justify-content: center;
+}
+// side align
+.salign {
+    display: flex;
+    justify-content: space-between;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.none {
+    display: none !important;
+}
