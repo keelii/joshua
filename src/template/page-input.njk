@@ -4,47 +4,64 @@
 
 {% set active = 'input' %}
 {% include "nav.njk" %}
+{% include "breakpoint.njk" %}
+
+{% Row %}
+    {% Col default=[1,2] %}
+    {% endCol %}
+{% endRow %}
+
 
 <fieldset>
     <legend>Input: text</legend>
 
-    {% for types in input.text | slice(4) %}
-        <div class="row">
-            {%- for item in types %}
-                <div>
-                    <input type="{{ item }}" placeholder="{{ item }}"/>
-                </div>
-            {%- endfor %}
-        </div>
-    {% endfor %}
+    {% Row %}
+        {% for item in input.text %}
+            {% Col default=[1, 4] %}
+                <input type="{{ item }}" placeholder="{{ item }}"/>
+            {% endCol %}
+        {% endfor %}
+    {% endRow %}
+</fieldset>
+
+
+<fieldset>
+    <legend>Input: .full-width</legend>
+    {% Row %}
+        {% for item in input.text | max(4) %}
+            {% Col default=[1, 2] %}
+                <input class="full-width" type="{{ item }}" placeholder="{{ item }}" />
+            {% endCol %}
+        {% endfor %}
+    {% endRow %}
 </fieldset>
 
 <fieldset>
-    <legend>Input: text @small</legend>
+    <legend>Input: time</legend>
 
-    {% for types in input.text | slice(4) %}
-        <div class="row">
-            {%- for item in types %}
-                <div>
-                    <input class="small" type="{{ item }}" placeholder="{{ item }}"/>
-                </div>
-            {%- endfor %}
-        </div>
-    {% endfor %}
+    {% Row %}
+        {% for item in input.time %}
+            {% Col default=[1, 5] %}
+                <input type="{{ item }}" placeholder="{{ item }}"/>
+            {% endCol %}
+        {% endfor %}
+    {% endRow %}
 </fieldset>
 
 <fieldset>
-    <legend>Input: text .full-width</legend>
+    <legend>Input: .small</legend>
 
-    {% for types in input.text | slice(4) %}
-        <div class="row">
-            {%- for item in types %}
-                <div>
-                    <input class="full-width" type="{{ item }}" placeholder="{{ item }}"/>
-                </div>
-            {%- endfor %}
-        </div>
-    {% endfor %}
+    {% Row %}
+        {% for item in input.text %}
+            {% Col default=[1, 4] %}
+                <input class="small" type="{{ item }}" placeholder="{{ item }}" />{% endCol %}
+        {% endfor %}
+        {% for item in input.text %}
+            {% Col default=[1, 4] %}
+                <input class="full-width small" type="{{ item }}" placeholder="{{ item }}" />{% endCol %}
+        {% endfor %}
+    {% endRow %}
+
 </fieldset>
 
 {% endblock body %}

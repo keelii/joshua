@@ -1,0 +1,27 @@
+<fieldset>
+    <legend>Breakpoints</legend>
+    <div class="breakpoint-tips nav halign">
+        {% for bp in grid.breakpoints %}
+            <span class="{{ bp.prefix }}">{{ bp.name}}({{ bp.prefix | selector }})</span>
+        {% endfor %}
+    </div>
+    <style>
+        .breakpoint-tips span {
+            display: none;
+            padding: 0.5em 2em;
+            background: #eee;
+        }
+        @media screen and (min-width: 35.5em) {
+            .sm { display: inline-block!important; }
+        }
+        @media screen and (min-width: 48em) {
+            .md { display: inline-block!important; }
+        }
+        @media screen and (min-width: 64em) {
+            .lg { display: inline-block!important; }
+        }
+        @media screen and (min-width: 80em) {
+            .xl { display: inline-block!important; }
+        }
+    </style>
+</fieldset>

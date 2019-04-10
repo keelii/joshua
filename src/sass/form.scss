@@ -18,9 +18,10 @@ textarea {
     height: $line-height * 2;
     padding: $line-height / 2;
 
-    min-width: $line-height * 6;
+    // min-width: $line-height * 12;
+    max-width: 100%;
     // width: 100%;
-    margin-bottom: $line-height;
+    // margin-bottom: $line-height;
   
     font-size: 13px;
     background: $bg-color;
@@ -46,8 +47,8 @@ textarea {
     &.small {
         padding: $line-height / 4;
         height: $line-height;
-        margin-bottom: $line-height / 2;
-        min-width: $line-height * 8;
+        // margin-bottom: $line-height / 2;
+        // min-width: $line-height * 8;
     }
     &.full-width {
         width: 100%;
