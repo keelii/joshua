@@ -1,33 +1,27 @@
 // Vertical-rhythm size
 .sm-v {
     font-size: $half-line-height; /* equiv 12px */
-    line-height: 24px;
+    line-height: $line-height;
     padding-top: 0;
     padding-bottom: 0;
     margin-bottom: 0;
 }
 .md-v {
     font-size: $half-line-height + 2px; /* equiv 14px */
-    line-height: 24px;
+    line-height: $line-height;
     padding-top: $half-line-height / 2;
     padding-bottom: $half-line-height / 2;
     margin-bottom: $half-line-height;
 }
 .lg-v {
     font-size: $half-line-height + 4px; /* equiv 18px */
-    line-height: 48px;
-    // padding-top: $half-line-height;
-    // padding-bottom: $half-line-height;
-    // margin: 0 0  $line-height 0;
-    margin-bottom: 24px;
+    line-height: $line-height * 2;
+    margin-bottom: $line-height;
 }
 .xl-v {
     font-size:  $half-line-height + 10; /* equiv 22px */
-    line-height: 72px;
-    // padding-top: $half-line-height;
-    // padding-bottom: $half-line-height;
-    // margin: 0 0 $line-height 0;
-    margin-bottom: 24px;
+    line-height: $line-height * 3;
+    margin-bottom: $line-height;
 }
 
 // Align

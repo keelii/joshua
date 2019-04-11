@@ -70,13 +70,10 @@ select {
     padding-right: 30px!important;
 }
 
-
-$control-item-width: 2rem;
-
 .custom-control {
     position: relative;
-    padding-left: $control-item-width;
-    margin-right: $control-item-width / 2;
+    padding-left: $line-height;
+    margin-right: $line-height / 2;
     input {
         position: absolute;
         z-index: -1;
@@ -104,27 +101,26 @@ $control-item-width: 2rem;
     label {
         position: relative;
         user-select: none;
+        padding-left: 8px;
+
+        &::before, &::after {
+            position: absolute;
+            top: 0;
+            display: block;
+            width: $font-size;
+            height: $font-size;
+            content: "";
+        }
 
         &::before {
-            position: absolute;
-            top: 0.12rem;
-            left: -$control-item-width;
-            display: block;
-            width: 1.167rem;
-            height: 1.167rem;
-            pointer-events: none;
-            content: "";
+            left: -$font-size;
+            // pointer-events: none;
             background-color: #fff;
             border: 1px #adb5bd solid;
         }
         &::after {
-            position: absolute;
-            top: 0.12rem;
-            left: -$control-item-width;
-            display: block;
-            width: 1.334rem;
-            height: 1.334rem;
-            content: "";
+            top: 1px;
+            left: -$font-size + 1px;
             background: no-repeat 50% / 50% 50%;
         }
     }

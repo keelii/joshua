@@ -31,6 +31,14 @@
 <p class="lorem-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
 {% endmacro %}
 
+{% macro para() %}
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+{% endmacro %}
+
+{% macro heading(n) %}
+<h{{ n }}>Heading {{ n }}</h{{ n }}>
+{% endmacro %}
+
 <div class="container">
 {% block body %}{% endblock body %}
 </div>
