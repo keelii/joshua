@@ -1,127 +1,40 @@
+/**
+ * Vertical rhythm by Syncope
+ * http://nowodzinski.pl/syncope
+ */
 
-/* 
-
---- Vertical Rhythm Tool - http://soqr.fr/vertical-rhythm/ --- 
-           Font-size : 16px  Line-height : 1.5
-
-*/
-
-html {
-    font-size: 62.5%;
-}
-body {
-    font-size: 1.6em;
-    line-height: 1.5;
-}
-p, 
-ul, 
-ol, 
-dl, 
-blockquote, 
-pre, 
-td, 
-th, 
-textarea,
-caption {
-    font-size: 1em; /* equiv 16px */
-    line-height: 1.5;
-    margin: 0 0 1.5em 0;
-}
-h1, 
-.h1-like {
-    font-size:  2em; /* equiv 32px */
-    line-height: 1.5;
-    margin: 0 0 .75em 0;
-}
-h2, 
-.h2-like {
-    font-size:  1.75em; /* equiv 28px */
-    line-height: 1.7142;
-    margin: 0 0 .8571em 0;
-}
-h3, 
-.h3-like {
-    font-size:  1.5em; /* equiv 24px */
-    line-height:  1;
-    margin: 0 0  1em 0;
-}
-h4, 
-.h4-like {
-    font-size:  1.25em; /* equiv 20px */
-    line-height:  1.2;
-    margin: 0 0  1.2em 0;
-}
-h5, 
-.h5-like {
-    font-size:  1em; /* equiv 16px */
-    line-height:  1.5;
-    margin: 0 0  1.5em 0;
-}
-h6, 
-.h6-like {
-    font-size: .75em; /* equiv 12px */
-    line-height:  2;
-    margin: 0 0  2em 0;
+html, body {
+	font: 16px/1.5 'Helvetica';
 }
 
-// .sm {
-//     font-size: $half-line-height; /* equiv 12px */
-//     line-height: 2;
-//     padding: 0 $half-line-height;
-//     margin-bottom: $line-height;
-// }
-// .md {
-//     font-size: $half-line-height + 2px; /* equiv 14px */
-//     line-height: $line-height / 2;
-//     padding: $half-line-height $line-height;
-//     margin-bottom: $half-line-height;
-// }
-// .lg {
-//     font-size: $half-line-height + 4px; /* equiv 18px */
-//     line-height:  $line-height;
-//     padding: $half-line-height $line-height * 2;
-//     margin: 0 0  $line-height 0;
-// }
-// .xl {
-//     font-size:  $half-line-height + 10; /* equiv 22px */
-//     line-height:  $line-height * 2;
-//     padding: $half-line-height $line-height * 3;
-//     margin: 0 0 $line-height 0;
-// }
+$v-rhythm-levels: (
+	4: ( 5.06rem, 1.19rem, 0.247rem, 0.0494rem ),
+	3: ( 3.38rem, 1.33rem, 0.333rem, 0.111rem ),
+	2: ( 2.25rem, 1.33rem, 0.333rem, 0.333rem ),
+	1: ( 1.50rem, 2.00rem, 0.667rem, 0.333rem ),
+	0: ( 1.00rem, 1.50rem, 0.438rem, 1.06rem ),
+);
 
+/**
+ * Sets vertical–rhythm for the given level.
+ * Usage:
+ *
+ * 	h1 {
+ * 		@include v-rhythm( 4 );
+ * 	}
+ */
+@mixin v-rhythm( $level ) {
+	$rhythm: map-get( $v-rhythm-levels, $level );
 
-/* avoid supp margin on nested elements */
-li p,
-li ul {
-    margin-top: 0;
-    margin-bottom: 0;
+	font-size: nth( $rhythm, 1 );
+	line-height: nth( $rhythm, 2 );
+	padding-top: nth( $rhythm, 3 );
+	margin-bottom: nth( $rhythm, 4 );
 }
-/* you shall not pass */
-textarea,
-table, 
-td, 
-th, 
-code, 
-pre, 
-samp, 
-div, 
-p {
-    word-wrap: break-word;
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    -o-hyphens: auto;
-    hyphens: auto;
-}
-code, 
-pre, 
-samp {
-    white-space: pre-wrap;
-    font-family: consolas, 'DejaVu Sans Mono', courier, monospace;
-}
-code {
-    line-height: 1;
-}
-table {
-    margin-bottom: 1.5em;
-}
+
+h1 { @include v-rhythm( 4 ); }
+h2 { @include v-rhythm( 3 ); }
+h3 { @include v-rhythm( 2 ); }
+h4 { @include v-rhythm( 1 ); }
+h5 { @include v-rhythm( 0 ); }
+h6 { @include v-rhythm( 4 ); }
