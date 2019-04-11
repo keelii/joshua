@@ -6,11 +6,39 @@
 {% include "nav.njk" %}
 {% include "breakpoint.njk" %}
 
-{% Row %}
-    {% Col default=[1,2] %}
-    {% endCol %}
-{% endRow %}
+{{ lorem() }}
 
+<fieldset>
+    <legend>Statefull</legend>
+
+    {% Row %}
+        {% Col default=[1, 2] %}
+            {% for item in range(2) %}
+            <div class="custom-control">
+                <input type="checkbox" id="customCheck-{{ item }}">
+                <label for="customCheck-{{ item }}">Checkbox {{ item }}</label>
+            </div>
+            {% endfor %}            
+        {% endCol %}
+        {% Col default=[1, 2] %}
+            {% for item in range(2) %}
+            <div>
+                <span class="custom-control">
+                    <input type="radio" id="customRadio-yes-{{ item }}" name="radio-{{ item }}">
+                    <label for="customRadio-yes-{{ item }}">Yes</label>
+                </span>
+                <span class="custom-control">
+                    <input type="radio" id="customRadio-no-{{ item }}" name="radio-{{ item }}" checked>
+                    <label for="customRadio-no-{{ item }}">No</label>
+                </span>
+            </div>
+            {% endfor %}
+        {% endCol %}
+    {% endRow %}
+
+</fieldset>
+
+{{ lorem() }}
 
 <fieldset>
     <legend>Input: text</legend>
@@ -24,6 +52,7 @@
     {% endRow %}
 </fieldset>
 
+{{ lorem() }}
 
 <fieldset>
     <legend>Input: .full-width</legend>
@@ -35,6 +64,8 @@
         {% endfor %}
     {% endRow %}
 </fieldset>
+
+{{ lorem() }}
 
 <fieldset>
     <legend>Input: time</legend>
@@ -48,20 +79,28 @@
     {% endRow %}
 </fieldset>
 
+{{ lorem() }}
+
 <fieldset>
-    <legend>Input: .small</legend>
+    <legend>Sizes</legend>
 
-    {% Row %}
-        {% for item in input.text %}
-            {% Col default=[1, 4] %}
-                <input class="small" type="{{ item }}" placeholder="{{ item }}" />{% endCol %}
-        {% endfor %}
-        {% for item in input.text %}
-            {% Col default=[1, 4] %}
-                <input class="full-width small" type="{{ item }}" placeholder="{{ item }}" />{% endCol %}
-        {% endfor %}
-    {% endRow %}
-
+    <p>input</p>
+    {% for item in grid.breakpoints %}
+        <input class="{{ item.prefix }}" type="text" placeholder="{{ item.name }} text" />
+    {% endfor %}
+    <p>select</p>
+    {% for item in grid.breakpoints %}
+        <select class="{{ item.prefix }}">
+            <option value="">{{ item.name }} option 1</option>
+            <option value="">{{ item.name }} option 2</option>
+        </select>
+    {% endfor %}
+    <p>textarea</p>
+    {% for item in grid.breakpoints %}
+        <textarea class="{{ item.prefix }}" placeholder="{{ item.name }} textarea"></textarea>
+    {% endfor %}
 </fieldset>
+
+{{ lorem() }}
 
 {% endblock body %}

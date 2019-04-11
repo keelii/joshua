@@ -7,8 +7,29 @@
 
     <link rel="stylesheet" href="../main.scss" />
 
+    <style>
+        small { color: #999; font-size: 12px; white-space: nowrap; }
+        .demo {
+            text-align: center;
+            background: rgba(208, 208, 208, 0.6);
+            border-radius: 5px;
+            padding: 1em 0;
+        }
+        .demo .demo { background: #fafafa; }
+        .demo p { margin: 0; }
+        fieldset {
+            border-radius: 5px;
+        }
+        legend {
+            {# font-size: 1.5em; #}
+        }
+    </style>
 </head>
 <body>
+
+{% macro lorem() %}
+<p class="lorem-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+{% endmacro %}
 
 <div class="container">
 {% block body %}{% endblock body %}

@@ -5,14 +5,16 @@ $primary-color: #111111;
 $secondary-color: #104cfb;
 $gray-color: #a4a4a4;
 
-$base-margin: 14px * 1.6;
+$base-margin: 2.4px * 1.6;
 
 $grid-columns: 12;
 
-$font-size: 14px;
-$line-height: 14px * 1.6;
+$font-family: -apple-system, BlinkMacSystemFont, Arial, Helvetica;
+$font-size: 1.6rem;
+$line-height: 24px;
+$half-line-height: $line-height / 2;
 
-$gutter: 0.5em;
+$gutter: $line-height / 2;
 
 $breakpoint-sm: 35.5em;
 $breakpoint-md: 48em;

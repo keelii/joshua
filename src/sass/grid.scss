@@ -90,5 +90,5 @@ Resets the font family back to the OS/browser's default sans-serif font,
 this the same font stack that Normalize.css sets for the `body`.
 */
 .row [class *= "col"] {
-    font-family: sans-serif;
+    font-family: $font-family;
 }

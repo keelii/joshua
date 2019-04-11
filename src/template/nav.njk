@@ -3,7 +3,7 @@
         data-href="./page-{{ name }}.html">{{ name | title }}</a>
 {% endmacro %}
 
-<nav class="halign">
+<nav class="demo-nav halign">
     {{ navItem('grid', active) }}
     <span>◈</span>
     {{ navItem('button', active) }}
@@ -11,6 +11,27 @@
     {{ navItem('input', active) }}
     <span>◈</span>
     {{ navItem('form', active) }}
+    <a>
+        <span class="custom-control">
+            <input type="checkbox" id="show-lines">
+            <label for="show-lines">Show lines</label>
+        </span>
+    </a>
+    <script>
+    function checkMe(el) {
+        if (el.checked) {
+            document.body.classList.add('lines')
+        } else {
+            document.body.classList.remove('lines')
+        }
+    }
+
+    let showLineEl = document.querySelector('#show-lines')
+    showLineEl.addEventListener('change', e => {
+        checkMe(e.target)
+    })
+    checkMe(showLineEl)
+    </script>
 </nav>
 <style>
 nav span { color: #ccc; }

@@ -1,3 +1,36 @@
+// Vertical-rhythm size
+.sm-v {
+    font-size: $half-line-height; /* equiv 12px */
+    line-height: 24px;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.md-v {
+    font-size: $half-line-height + 2px; /* equiv 14px */
+    line-height: 24px;
+    padding-top: $half-line-height / 2;
+    padding-bottom: $half-line-height / 2;
+    margin-bottom: $half-line-height;
+}
+.lg-v {
+    font-size: $half-line-height + 4px; /* equiv 18px */
+    line-height: 48px;
+    // padding-top: $half-line-height;
+    // padding-bottom: $half-line-height;
+    // margin: 0 0  $line-height 0;
+    margin-bottom: 24px;
+}
+.xl-v {
+    font-size:  $half-line-height + 10; /* equiv 22px */
+    line-height: 72px;
+    // padding-top: $half-line-height;
+    // padding-bottom: $half-line-height;
+    // margin: 0 0 $line-height 0;
+    margin-bottom: 24px;
+}
+
+// Align
 .valign {
     display: flex;
     align-items: center;
@@ -6,30 +39,43 @@
     display: flex;
     justify-content: center;
 }
-// side align
 .salign {
+    // side align
     display: flex;
     justify-content: space-between;
 }
-
 .center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .right {
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
-
 .left {
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
 
+// utils
+.full-width {
+    width: 100%;
+}
 .none {
     display: none !important;
+}
+
+// debug
+.lorem-text {
+    display: none;
+}
+.lines {
+    background: linear-gradient(to bottom, $bg-color, $bg-color 95%, #aaa 100%, #aaa);
+    background-size: 100% 24px;
+    .lorem-text {
+        display: block;
+    }
 }

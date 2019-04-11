@@ -20,41 +20,6 @@
     {% endCol %}
 {% endmacro %}
 
-{% macro column(numerator, denominator, bp) %}
-    {% if numerator == 1 and not denominator and not bp %}
-    <div class="{{ grid.col }}-{{ numerator }}">
-        <div class="demo">
-            {{ grid.col }}-{{ numerator }}
-            <small>.{{ grid.col }}-{{ numerator }}</small>
-        </div>
-    </div>
-    {% else %}
-    <div class="{{ grid.col }}-{{ numerator }}-{{ denominator }}">
-        <div class="demo">{{ numerator }}/{{ denominator }}
-            <small>.{{ grid.col }}-{{ numerator }}-{{ denominator }}</small>
-        </div>
-    </div>
-    {% endif %}
-{% endmacro %}
-
-<style>
-    small { color: #999; font-size: 12px; white-space: nowrap; }
-    .demo {
-        text-align: center;
-        background: #eee;
-        border-radius: 5px;
-        padding: 1em 0;
-    }
-    .demo .demo { background: #fafafa; }
-    .demo p { margin: 0; }
-    fieldset {
-        border-radius: 5px;
-    }
-    legend {
-        font-size: 2em;
-    }
-</style>
-
 <fieldset>
     <legend>Basics: 5 columns</legend>
     {% Row %}

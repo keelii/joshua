@@ -1,8 +1,10 @@
 .nav, nav {
+    margin-bottom: $line-height;
     > * {
-        padding: 0.5em 1em;
-        margin: 0 0.5em;
-        border-bottom: 3px solid #fff;
+        padding: $half-line-height $line-height;
+        height: $line-height * 2;
+        // margin: 0 $half-line-height / 6;
+        border-bottom: 3px solid transparent;
         text-decoration: none;
     }
     .current, .current:hover {

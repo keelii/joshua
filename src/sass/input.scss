@@ -1,0 +1,131 @@
+@import './mixin.scss';
+
+input[type=text], 
+input[type=password], 
+input[type=email], 
+input[type=search], 
+input[type=number], 
+input[type=tel], 
+input[type=url], 
+input[type=date], 
+input[type=datetime], 
+input[type=datetime-local], 
+input[type=week], 
+input[type=month], 
+input[type=time], 
+select, 
+textarea {
+    max-width: 100%;
+    background: transparent;
+    vertical-align: top;
+  
+    @include border(1px, $gray-color);
+    @include transition;
+
+    -webkit-appearance: none;
+
+    // &:hover {
+    //     border-color: $primary-color;
+    // }
+
+    // &:focus {
+    //     outline: none;
+    //     border-color: $secondary-color;
+    // }
+
+    // Sizes
+    &.sm {
+        @extend .sm-v;
+        padding-left: $half-line-height / 2;
+        padding-right: $half-line-height / 2;
+    }
+    &.md, & {
+        @extend .md-v;
+        padding-left: $half-line-height;
+        padding-right: $half-line-height;
+    }
+    &.lg {
+        @extend .lg-v;
+        padding-left: $line-height / 2;
+        padding-right: $line-height / 2;
+    }
+    &.xl {
+        @extend .xl-v;
+        padding-left: $line-height;
+        padding-right: $line-height;
+    }
+}
+
+textarea {
+    line-height: 1.5em!important;
+
+    &.sm { min-height: $line-height * 2; }
+    &.md, & { min-height: $line-height * 4; }
+    &.lg { min-height: $line-height * 6; }
+    &.xl { min-height: $line-height * 8; }
+}
+
+select {
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 12px center/8px 10px;
+    padding-right: 30px!important;
+}
+
+
+$control-item-width: 2rem;
+
+.custom-control {
+    position: relative;
+    padding-left: $control-item-width;
+    margin-right: $control-item-width / 2;
+    input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+
+        &:checked ~ label::before {
+            color: #fff;
+            border-color: #007bff;
+            background-color: #007bff;
+        }
+
+        &[type="checkbox"]:checked ~ label::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+        }
+        &[type="radio"]:checked ~ label::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+        }
+        &[type="checkbox"] ~ label::before {
+            border-radius: 0.33rem;
+        }
+        &[type="radio"] ~ label::before {
+            border-radius: 50%;
+        }
+    }
+    label {
+        position: relative;
+        user-select: none;
+
+        &::before {
+            position: absolute;
+            top: 0.12rem;
+            left: -$control-item-width;
+            display: block;
+            width: 1.167rem;
+            height: 1.167rem;
+            pointer-events: none;
+            content: "";
+            background-color: #fff;
+            border: 1px #adb5bd solid;
+        }
+        &::after {
+            position: absolute;
+            top: 0.12rem;
+            left: -$control-item-width;
+            display: block;
+            width: 1.334rem;
+            height: 1.334rem;
+            content: "";
+            background: no-repeat 50% / 50% 50%;
+        }
+    }
+}

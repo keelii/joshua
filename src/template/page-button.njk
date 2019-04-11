@@ -11,50 +11,47 @@
     {% endfor %}
 {% endmacro %}
 
-<fieldset>
-    <legend>Buttons: [type="input"]</legend>
-    <p>
-    {% for type in input.button %}
-        <input type="{{ type }}" value="{{ type }}">
-    {% endfor %}
-    </p>
-</fieldset>
+{{ lorem() }}
 
 <fieldset>
-    <legend>Buttons: a.button</legend>
-    <p>
-    {% for type in input.button %}
-        <button>{{ type }}</button>
-    {% endfor %}
-    {% for type in input.button %}
-        <a class="button" href="#none">{{ type }}</a>
-    {% endfor %}
-    </p>
+    <legend>Buttons</legend>
+    <input type="button" value="input:button" />
+    <button>button</button>
+    <a href="#none" class="button">a.button</a>
+    <span class="button">span.button</span>
 </fieldset>
 
+{{ lorem() }}
+
 <fieldset>
-    <legend>Buttons: .small</legend>
-    <p>
-    {% for type in input.button %}
-        <input class="small" type="{{ type }}" value="{{ type }}">
+    <legend>Sizes</legend>
+    {% for item in grid.breakpoints %}
+        <p>
+        {% for type in input.button %}
+            <input class="{{ item.prefix }}" type="{{ type }}" value="{{ item.name }}">
+        {% endfor %}
+            <button class="{{ item.prefix }}">button</button>
+            <a href="#none" class="button {{ item.prefix }}">a.button</a>
+        </p>
     {% endfor %}
-    {% for type in input.button %}
-        <input type="{{ type }}" value="{{ type }}">
-    {% endfor %}
-    </p>
 </fieldset>
+
+{{ lorem() }}
 
 <fieldset>
     <legend>Buttons: .outline</legend>
-    <p>
-    {% for type in input.button %}
-        <input class="outline" type="{{ type }}" value="{{ type }}">
+    {% for item in grid.breakpoints %}
+        <p >
+        {% for type in input.button %}
+            <input class="outline {{ item.prefix }}" type="{{ type }}" value="{{ type }}">
+        {% endfor %}
+            <button class="outline {{ item.prefix }}">button</button>
+            <a href="#none" class="button outline {{ item.prefix }}">a.button</a>
+        </p>
+
     {% endfor %}
-    {% for type in input.button %}
-        <input class="small outline" type="{{ type }}" value="{{ type }}">
-    {% endfor %}
-    </p>
 </fieldset>
 
+{{ lorem() }}
 
 {% endblock body %}

@@ -1,6 +1,7 @@
 @mixin border($width: 1.5px, $color) {
     border-radius: 2px;
-    border: $width solid $color;
+    // border: $width solid $color;
+    box-shadow: inset 0 0 0 $width $color;
 }
 @mixin transition {
     transition: all .2s ease;

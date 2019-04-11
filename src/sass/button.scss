@@ -4,30 +4,23 @@ button, .button,
 [type=reset],
 [type=button],
 [type=submit] {
-    // line-height: $line-height * 2;
-    margin-bottom: $line-height;
-    height: $line-height * 2;
-    padding: $line-height / 2 $line-height * 2;
-    outline: none;
     color: $bg-color;
-    font-size: $font-size;
     background: $primary-color;
+    // opacity: 0.5;
     text-decoration: none;
-    
+    display: inline-block;
+    user-select: none;
+    vertical-align: top;
+
     @include border(1.5px, $primary-color);
     @include transition;
 
-    font-family: inherit;
-
+    &:active {
+        transform: scale(0.99);
+    }
     &:hover, &:focus {
         opacity: .9;
         outline: none;
-    }
-    &:active {
-        // opacity: .7
-        // outline: none;
-        // border-style: solid;
-        // transform: scale(0.99);
     }
     &[disabled] {
         opacity: 0.8;
@@ -38,20 +31,41 @@ button, .button,
         background: none;
 
         &:hover, &:focus {
-            // color: $bg-color;
             background: none;
         }
     }
-}
 
-button, .button, 
-[type=reset],
-[type=button],
-[type=submit] {
-    &.small {
-        // padding: $line-height / 4;
-        padding: $line-height / 6 $line-height;
-        height: auto;
-        margin-bottom: $line-height / 2;
+    // Sizes
+    &.sm {
+        @extend .sm-v;
+        padding-left: $half-line-height;
+        padding-right: $half-line-height;
+    }
+    &.md, & {
+        @extend .md-v;
+        padding-left: $line-height;
+        padding-right: $line-height;
+    }
+    &.lg {
+        @extend .lg-v;
+        padding-left: $line-height * 2;
+        padding-right: $line-height * 2;
+    }
+    &.xl {
+        @extend .xl-v;
+        padding-left: $line-height * 3;
+        padding-right: $line-height * 3;
     }
 }
+
+// button, .button, 
+// [type=reset],
+// [type=button],
+// [type=submit] {
+//     &.small {
+//         // padding: $line-height / 4;
+//         padding: $line-height / 6 $line-height;
+//         height: auto;
+//         margin-bottom: $line-height / 2;
+//     }
+// }
