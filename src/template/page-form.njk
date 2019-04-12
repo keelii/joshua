@@ -10,25 +10,13 @@
     <legend>Basics</legend>
     <div class="form">
         <p>
-            <label for="username1">Username</label>
-            <input id="username1" type="text" placeholder="input your name" />
-            <span class="form-tip">Username must filled.</span>
+            {{ TextInputField('Username1') }}
         </p>
         <p>
-            <label for="password1">Password</label>
-            <input id="password1" type="password" placeholder="input your pass" />
-            <span class="form-tip">Password too simple.</span>
+            {{ PasswordInputField('Password1') }}
         </p>
         <p>
-            <label for="gender1">Gender</label>
-            <select id="gender1">
-                <option value="0">Female</option>
-                <option value="1">Male</option>
-            </select>
-            <select id="gender1">
-                <option value="1">Male</option>
-                <option value="0">Female</option>
-            </select>
+            {{ SelectField('Gender1') }}
         </p>
         <p>
             <label for="check">Select</label>
@@ -40,17 +28,15 @@
             {{ CustomInput("Female", "radio", "gender") }}
         </p>
         <p>
-            <label for="text1">Some other long longger field to input</label>
-            <input id="text1" type="text" placeholder="input your field" />
+            {{ TextInputField('Some other long longger field to input') }}
         </p>
         <p>
-            <label for="desc1">Description</label>
-            <textarea id="desc1" placeholder="input your desc"></textarea>
+            {{ TextareaField('Description') }}
         </p>
         <p>
             <label></label>
-            <input type="Submit" value="Submit" />
-            <input class="outline" type="reset" value="Reset" />
+            {{ SubmitBtn() }}
+            {{ ResetBtn(cls="outline") }}
         </p>
     </div>        
     {{ lorem() }}
@@ -60,23 +46,17 @@
     <legend>Stacked</legend>
     <div class="form stacked">
         <p>
-            <label for="username2">Username</label>
-            <input id="username2" type="text" placeholder="input your name" />
+            {{ TextInputField('Username2') }}
         </p>
         <p>
-            <label for="gender2">Gender</label>
-            <select id="gender2">
-                <option value="1">Male</option>
-                <option value="0">Female</option>
-            </select>
+            {{ PasswordInputField('Password2') }}
         </p>
         <p>
-            <label for="desc2">Description</label>
-            <textarea id="desc2" placeholder="input your desc"></textarea>
+            {{ SelectField('Gender2') }}
         </p>
         <p>
-            <button>Save</button>
-            <button class="outline" type="reset">Reset</button>
+            {{ Btn() }}
+            {{ Btn('Reset', type="reset", cls="outline") }}
         </p>
     </div>
     {{ lorem() }}
@@ -86,23 +66,21 @@
     <legend>Full width</legend>
     <div class="form full-width stacked">
         <p>
-            <label for="username2">Username</label>
-            <input id="username2" type="text" placeholder="input your name" />
+            {{ TextInputField('Username3') }}
         </p>
         <p>
-            <label for="gender2">Gender</label>
-            <select id="gender2">
-                <option value="1">Male</option>
-                <option value="0">Female</option>
-            </select>
+            {{ PasswordInputField('Password3') }}
         </p>
         <p>
-            <label for="desc2">Description</label>
-            <textarea id="desc2" placeholder="input your desc"></textarea>
+            {{ SelectField('Gender3') }}
         </p>
         <p>
-            <button>Save</button>
-            <button class="outline" type="reset">Reset</button>
+            {{ Btn() }}
+            {{ Btn('Reset', type="reset", cls="outline") }}
+        </p>
+        <p>
+            {{ Btn(cls="full-width") }}
+            {{ Btn('Reset', type="reset", cls="outline full-width") }}
         </p>
     </div>
     {{ lorem() }}

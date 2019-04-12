@@ -46,6 +46,38 @@
 </span>
 {% endmacro %}
 
+{% macro TextInputField(label, tips="") %}
+    <label for="{{ label | midline }}">{{ label }}</label>
+    <input class="input" id="{{ label | midline }}" type="text" placeholder="type your {{ label }}" />
+    <span class="form-tip">check your {{ label }} correction.</span>
+{% endmacro %}
+{% macro PasswordInputField(label, tips="") %}
+    <label for="{{ label | midline }}">{{ label }}</label>
+    <input class="input" id="{{ label | midline }}" type="password" placeholder="type your {{ label }}" />
+    <span class="form-tip">check your {{ label }} correction.</span>
+{% endmacro %}
+{% macro SelectField(label, options=['Female', 'Male']) %}
+<label for="{{ label | midline }}">{{ label }}</label>
+<select class="select" id="{{ label | midline }}">
+    {% for item in options %}
+        <option value="{{ loop.index }}">{{ item }}</option>
+    {% endfor %}
+</select>
+{% endmacro %}
+{% macro TextareaField(label, tips="") %}
+    <label for="{{ label | midline }}">{{ label }}</label>
+    <textarea class="textarea" id="{{ label | midline }}" placeholder="type your {{ label }}"></textarea>
+{% endmacro %}
+{% macro SubmitBtn(value='Submit', cls='') %}
+<input class="btn {{cls}}" type="Submit" value="{{ value }}" />
+{% endmacro %}
+{% macro ResetBtn(value='Reset', cls='') %}
+<input class="btn {{cls}}" type="reset" value="{{ value }}" />
+{% endmacro %}
+{% macro Btn(value='Save', type="button", cls='') %}
+<button class="btn {{cls}}" type="{{ type }}">{{ value }}</button>
+{% endmacro %}
+
 
 <div class="container">
 {% block body %}{% endblock body %}

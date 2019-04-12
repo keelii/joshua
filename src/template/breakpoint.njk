@@ -2,7 +2,7 @@
     <legend>Breakpoints</legend>
     <div class="breakpoint-tips nav halign">
         {% for bp in grid.breakpoints %}
-            <span class="sm span-{{ bp.prefix }}">{{ bp.name}}({{ bp.prefix | selector }})</span>
+            <span class="span-{{ bp.prefix }}">{{ bp.name}}({{ bp.prefix | selector }})</span>
         {% endfor %}
     </div>
     <style>
