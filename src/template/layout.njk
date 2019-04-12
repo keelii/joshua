@@ -39,6 +39,14 @@
 <h{{ n }}>Heading {{ n }}</h{{ n }}>
 {% endmacro %}
 
+{% macro CustomInput(label, type, name="") %}
+<span class="custom-input">
+    <input type="{{ type }}" id="{{ label | midline }}" name="{{ name | midline }}" >
+    <label for="{{ label | midline }}">{{ label }} </label>
+</span>
+{% endmacro %}
+
+
 <div class="container">
 {% block body %}{% endblock body %}
 </div>

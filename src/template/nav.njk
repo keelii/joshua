@@ -14,10 +14,11 @@
     <span>◈</span>
     {{ navItem('typo', active) }}
     <a>
-        <span class="custom-control">
+        {{ CustomInput('Show Lines', 'checkbox') }}
+        {# <span class="custom-input">
             <input type="checkbox" id="show-lines">
             <label for="show-lines">Show lines</label>
-        </span>
+        </span> #}
     </a>
     <script>
     function checkMe(el) {

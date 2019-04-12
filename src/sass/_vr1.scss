@@ -52,8 +52,12 @@ arr.map(item => item.map(unit => `${unit/16}rem`))
 	padding-top: nth( $rhythm, 3 );
 	margin-bottom: nth( $rhythm, 4 );
 }
+@mixin v-rhythm-font( $level ) {
+	$rhythm: map-get( $v-rhythm-levels, $level );
+	font-size: nth( $rhythm, 1 );
+}
 
-.typo {
+// .typo {
     h1 { @include v-rhythm( 1 ); }
     h2 { @include v-rhythm( 2 ); }
     h3 { @include v-rhythm( 3 ); }
@@ -61,4 +65,4 @@ arr.map(item => item.map(unit => `${unit/16}rem`))
     h5 { @include v-rhythm( 5 ); }
     h6 { @include v-rhythm( 6 ); }
     p  { @include v-rhythm( 5 ); }
-}
+// }

@@ -1,16 +1,49 @@
 .nav, nav {
+    flex-direction: column;
+    text-align: center;
     margin-bottom: $line-height;
     > * {
-        padding: $half-line-height $line-height;
+        padding-top: $half-line-height;
+        padding-bottom: $half-line-height;
         height: $line-height * 2;
         // margin: 0 $half-line-height / 6;
         border-bottom: 3px solid transparent;
         text-decoration: none;
+        white-space: nowrap;
     }
     .current, .current:hover {
         cursor: default;
         text-decoration: none;
         border-bottom-color: $primary-color;
         color: $primary-color
+    }
+
+    @media (min-width: $breakpoint-sm) {
+        & { flex-direction: row; }
+        & > * {
+            padding-left: $half-line-height / 2;
+            padding-right: $half-line-height / 2;
+        }
+    }
+    @media (min-width: $breakpoint-md) {
+        & { flex-direction: row; }
+        & > * {
+            padding-left: $half-line-height;
+            padding-right: $half-line-height;
+        }
+    }
+    @media (min-width: $breakpoint-lg) {
+        & { flex-direction: row; }
+        & > * {
+            padding-left: $line-height;
+            padding-right: $line-height;
+        }
+    }
+    @media (min-width: $breakpoint-xl) {
+        & { flex-direction: row; }
+        & > * {
+            padding-left: $line-height;
+            padding-right: $line-height;
+        }
     }
 }

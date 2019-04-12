@@ -1,44 +1,94 @@
-label:first-child {
-    margin-right: 1em;
+// label:first-child {
+//     margin-right: 1em;
 
-    + input:not([type="checkbox"]):not([type="radio"]), 
-    + textarea,
-    + select {
-        margin-top: 1em;
-    }
-}
+//     + input:not([type="checkbox"]):not([type="radio"]), 
+//     + textarea,
+//     + select {
+//         margin-top: 1em;
+//     }
+// }
 
 .form {
-    .row {
-        margin-bottom: 0!important;
-    }
-    input:not([type="checkbox"]):not([type="radio"]), 
-    textarea, 
-    select { width: 100%; }
     p {
-        input:not([type="checkbox"]):not([type="radio"]), 
-        textarea, 
-        select {
-            margin-bottom: 0;
-        }
+        padding-top: 0;
+        margin-bottom: $line-height / 2;
     }
-    &.inline {
-        input:not([type="checkbox"]):not([type="radio"]), 
-        textarea, 
-        select { width: auto; }
+    .custom-input {
+        height: $line-height * 1.5;
+        line-height: $line-height * 1.5; 
+    }
+    label:first-child {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 1em;
+        width: 10rem;
+        text-align: right;
+    }
+    textarea {
+        min-height: $line-height * 4;
+    }
+    input, textarea, select {
+        margin-bottom: 0!important;
+        margin-top: 0!important;
+        vertical-align: middle;
+    }
+    button, .button, 
+    [type=reset],
+    [type=button],
+    [type=submit] {
+        min-width: 6rem;
+    }
+    .form-tip {
+        @include v-rhythm-font( 6 );
+    }
+    &.stacked {
+        p {
+            margin-bottom: $line-height;
+        }
+        textarea {
+            min-height: $line-height * 4 - 12px;
+        }
         label:first-child {
-            width: $line-height * 8;
-            text-align: right;
-            display: inline-block;
-            vertical-align: middle;
-            + input, 
-            + textarea,
-            + select {
-                margin-top: 0;
-            }
-            + textarea {
-                vertical-align: text-top;
-            }
+            display: block;
+            text-align: left;
+            margin-bottom: $line-height / 2;
         }
     }
+    &.full-width {
+        input, textarea, select {
+            width: 100%;
+        }
+    }
+    // .row {
+    //     margin-bottom: 0!important;
+    // }
+    // input:not([type="checkbox"]):not([type="radio"]), 
+    // textarea, 
+    // select { width: 100%; }
+    // p {
+    //     input:not([type="checkbox"]):not([type="radio"]), 
+    //     textarea, 
+    //     select {
+    //         margin-bottom: 0;
+    //     }
+    // }
+    // &.inline {
+    //     input:not([type="checkbox"]):not([type="radio"]), 
+    //     textarea, 
+    //     select { width: auto; }
+    //     label:first-child {
+    //         width: $line-height * 8;
+    //         text-align: right;
+    //         display: inline-block;
+    //         vertical-align: middle;
+    //         + input, 
+    //         + textarea,
+    //         + select {
+    //             margin-top: 0;
+    //         }
+    //         + textarea {
+    //             vertical-align: text-top;
+    //         }
+    //     }
+    // }
 }

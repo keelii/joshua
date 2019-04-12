@@ -14,24 +14,13 @@
     {% Row %}
         {% Col default=[1, 2] %}
             {% for item in range(2) %}
-            <div class="custom-control">
-                <input type="checkbox" id="customCheck-{{ item }}">
-                <label for="customCheck-{{ item }}">Checkbox {{ item }}</label>
-            </div>
+            {{ CustomInput("Checkbox " + item, "checkbox") }}
             {% endfor %}            
         {% endCol %}
         {% Col default=[1, 2] %}
             {% for item in range(2) %}
-            <div>
-                <span class="custom-control">
-                    <input type="radio" id="customRadio-yes-{{ item }}" name="radio-{{ item }}">
-                    <label for="customRadio-yes-{{ item }}">Yes</label>
-                </span>
-                <span class="custom-control">
-                    <input type="radio" id="customRadio-no-{{ item }}" name="radio-{{ item }}" checked>
-                    <label for="customRadio-no-{{ item }}">No</label>
-                </span>
-            </div>
+                {{ CustomInput("Radio Yes " + item, "radio", "radio-" + item) }}
+                {{ CustomInput("Radio No " + item, "radio", "radio-" + item) }}
             {% endfor %}
         {% endCol %}
     {% endRow %}

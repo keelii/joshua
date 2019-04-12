@@ -6,14 +6,24 @@
     "start": "parcel src/template/page-*.njk -p 8989",
     "start:doc": "parcel src/template/doc.njk -p 8988",
     "sass": "parcel watch src/main.scss",
-    "grid": "node bin/generate-grid.js > src/sass/_grid-col.scss"
+    "grid": "node bin/generate-grid.js > src/sass/_grid-col.scss",
+    "build": "rm -rf dist && parcel build src/main.scss && cleancss -o dist/main.min.css dist/main.css",
+    "size": "size-limit"
   },
+  "size-limit": [
+    {
+      "path": "dist/main.min.css"
+    }
+  ],
   "devDependencies": {
+    "clean-css": "^4.2.1",
+    "clean-css-cli": "^4.3.0",
     "nunjucks": "^3.2.0",
     "parcel-bundler": "^1.12.3",
     "parcel-plugin-nunjucks": "^1.1.0",
     "rework": "^1.0.1",
     "rework-pure-grids": "^1.0.0",
-    "sass": "^1.17.3"
+    "sass": "^1.17.3",
+    "size-limit": "^1.0.1"
   }
 }

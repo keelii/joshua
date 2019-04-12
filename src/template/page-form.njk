@@ -5,9 +5,107 @@
 {% set active = 'form' %}
 {% include "nav.njk" %}
 
+
 <fieldset>
-    <legend>Basics: auto width</legend>
-    
+    <legend>Basics</legend>
+    <div class="form">
+        <p>
+            <label for="username1">Username</label>
+            <input id="username1" type="text" placeholder="input your name" />
+            <span class="form-tip">Username must filled.</span>
+        </p>
+        <p>
+            <label for="password1">Password</label>
+            <input id="password1" type="password" placeholder="input your pass" />
+            <span class="form-tip">Password too simple.</span>
+        </p>
+        <p>
+            <label for="gender1">Gender</label>
+            <select id="gender1">
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+            </select>
+            <select id="gender1">
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+        </p>
+        <p>
+            <label for="check">Select</label>
+            {{ CustomInput("Remember Me", "checkbox") }}
+        </p>
+        <p>
+            <label for="check">Gender</label>
+            {{ CustomInput("Male", "radio", "gender") }}
+            {{ CustomInput("Female", "radio", "gender") }}
+        </p>
+        <p>
+            <label for="text1">Some other long longger field to input</label>
+            <input id="text1" type="text" placeholder="input your field" />
+        </p>
+        <p>
+            <label for="desc1">Description</label>
+            <textarea id="desc1" placeholder="input your desc"></textarea>
+        </p>
+        <p>
+            <label></label>
+            <input type="Submit" value="Submit" />
+            <input class="outline" type="reset" value="Reset" />
+        </p>
+    </div>        
+    {{ lorem() }}
+</fieldset>
+
+<fieldset>
+    <legend>Stacked</legend>
+    <div class="form stacked">
+        <p>
+            <label for="username2">Username</label>
+            <input id="username2" type="text" placeholder="input your name" />
+        </p>
+        <p>
+            <label for="gender2">Gender</label>
+            <select id="gender2">
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+        </p>
+        <p>
+            <label for="desc2">Description</label>
+            <textarea id="desc2" placeholder="input your desc"></textarea>
+        </p>
+        <p>
+            <button>Save</button>
+            <button class="outline" type="reset">Reset</button>
+        </p>
+    </div>
+    {{ lorem() }}
+</fieldset>
+
+<fieldset>
+    <legend>Full width</legend>
+    <div class="form full-width stacked">
+        <p>
+            <label for="username2">Username</label>
+            <input id="username2" type="text" placeholder="input your name" />
+        </p>
+        <p>
+            <label for="gender2">Gender</label>
+            <select id="gender2">
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+        </p>
+        <p>
+            <label for="desc2">Description</label>
+            <textarea id="desc2" placeholder="input your desc"></textarea>
+        </p>
+        <p>
+            <button>Save</button>
+            <button class="outline" type="reset">Reset</button>
+        </p>
+    </div>
+    {{ lorem() }}
 </fieldset>
 
 

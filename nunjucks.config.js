@@ -36,6 +36,7 @@ const data = {
 
 env.addFilter('selector', (str) => str === 'default' ? '' : '.' + str)
 env.addFilter('max', (arr, num) => arr.slice(0, num))
+env.addFilter('midline', (str) => str.toLowerCase().replace(/\s/g, '-'))
 
 /**
  * 删格行
