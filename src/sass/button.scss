@@ -1,17 +1,15 @@
-@import './mixin.scss';
+@import "./mixin.scss";
 
-button, .button, 
-[type=reset],
-[type=button],
-[type=submit] {
+.btn {
+    // opacity: 0.5;
+    display: inline-block;
+    vertical-align: top;
+
     color: $bg-color;
     background: $primary-color;
-    // opacity: 0.5;
-    min-width: initial;
     text-decoration: none;
-    display: inline-block;
+
     user-select: none;
-    vertical-align: top;
 
     @include border(1.5px, $primary-color);
     @include transition;
@@ -19,8 +17,9 @@ button, .button,
     &:active {
         transform: scale(0.99);
     }
-    &:hover, &:focus {
-        opacity: .9;
+    &:hover,
+    &:focus {
+        opacity: 0.9;
         outline: none;
     }
     &[disabled] {
@@ -31,35 +30,34 @@ button, .button,
         color: $primary-color;
         background: none;
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             background: none;
         }
     }
 
     // Sizes
-    &.sm {
-        @extend .sm-v;
-        padding-left: $half-line-height;
-        padding-right: $half-line-height;
-    }
+    // &.sm {
+    //     @extend .sm;
+    //     margin-bottom: 0;
+    // }
     &.md, & {
-        @extend .md-v;
-        padding-left: $line-height;
-        padding-right: $line-height;
+        @extend .md;
     }
-    &.lg {
-        @extend .lg-v;
-        padding-left: $line-height * 2;
-        padding-right: $line-height * 2;
-    }
-    &.xl {
-        @extend .xl-v;
-        padding-left: $line-height * 3;
-        padding-right: $line-height * 3;
-    }
+
+    // &.lg {
+    //     @extend .lg-v;
+    //     padding-left: $line-height * 2;
+    //     padding-right: $line-height * 2;
+    // }
+    // &.xl {
+    //     @extend .xl-v;
+    //     padding-left: $line-height * 3;
+    //     padding-right: $line-height * 3;
+    // }
 }
 
-// button, .button, 
+// button, .button,
 // [type=reset],
 // [type=button],
 // [type=submit] {

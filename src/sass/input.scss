@@ -1,67 +1,71 @@
-@import './mixin.scss';
+@import "./mixin.scss";
 
-// input[type=text], 
-// input[type=password], 
-// input[type=email], 
-// input[type=search], 
-// input[type=number], 
-// input[type=tel], 
-// input[type=url], 
-// input[type=date], 
-// input[type=datetime], 
-// input[type=datetime-local], 
-// input[type=week], 
-// input[type=month], 
-// input[type=time], 
-input,
-select, 
-textarea {
-    min-width: 12.25rem;
-    max-width: 100%;
-    background: transparent;
+// input[type=text],
+// input[type=password],
+// input[type=email],
+// input[type=search],
+// input[type=number],
+// input[type=tel],
+// input[type=url],
+// input[type=date],
+// input[type=datetime],
+// input[type=datetime-local],
+// input[type=week],
+// input[type=month],
+// input[type=time],
+.input,
+.select,
+.textarea {
     vertical-align: top;
-  
+
     @include border(1px, $gray-color);
-    @include transition;
-
-    -webkit-appearance: none;
-
+    // @include transition;
+    @extend .md;
+    padding-left: $half-line-height;
+    padding-right: $half-line-height;   
     // Sizes
+    // &.sm {
+    //     @extend .sm;
+    //     padding-left: $half-line-height / 2;
+    //     padding-right: $half-line-height / 2;
+    // }
+    // &.md, & {
+
+    // }
+    // &.lg {
+    //     padding-left: $line-height / 2;
+    //     padding-right: $line-height / 2;
+    // }
+    // &.xl {
+    //     padding-left: $line-height;
+    //     padding-right: $line-height;
+    // }
+}
+
+.textarea {
+    line-height: 1.5em !important;
+
     &.sm {
-        @extend .sm-v;
-        padding-left: $half-line-height / 2;
-        padding-right: $half-line-height / 2;
+        min-height: $line-height * 2;
     }
-    &.md, & {
-        @extend .md-v;
-        padding-left: $half-line-height;
-        padding-right: $half-line-height;
+    &.md,
+    & {
+        min-height: $line-height * 4;
     }
     &.lg {
-        @extend .lg-v;
-        padding-left: $line-height / 2;
-        padding-right: $line-height / 2;
+        min-height: $line-height * 6;
+        padding-top: $line-height / 2;
+        padding-bottom: $line-height / 2;
     }
     &.xl {
-        @extend .xl-v;
-        padding-left: $line-height;
-        padding-right: $line-height;
+        min-height: $line-height * 8;
+        padding: $line-height;
     }
 }
 
-textarea {
-    line-height: 1.5em!important;
-
-    &.sm { min-height: $line-height * 2; }
-    &.md, & { min-height: $line-height * 4; }
-    &.lg { min-height: $line-height * 6; }
-    &.xl { min-height: $line-height * 8; }
-}
-
-select {
-    min-width: 6rem;
+.select {
     background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 12px center/8px 10px;
-    padding-right: 30px!important;
+    padding-right: 30px !important;
 }
 
 .custom-input {
@@ -70,6 +74,8 @@ select {
     margin-right: $line-height / 2;
     display: inline-block;
     vertical-align: middle;
+    height: $font-size;
+    line-height: $font-size;
     input {
         position: absolute;
         z-index: -1;
@@ -99,7 +105,8 @@ select {
         user-select: none;
         padding-left: 8px;
 
-        &::before, &::after {
+        &::before,
+        &::after {
             position: absolute;
             top: 0;
             display: block;

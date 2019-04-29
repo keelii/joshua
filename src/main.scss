@@ -1,16 +1,16 @@
 @import "./sass/vars.scss";
-@import "./sass/reset.scss";
 
+@import "./sass/reset.scss";
 @import "./sass/_vr1.scss";
+
+@import "./sass/utils.scss";
 
 @import "./sass/button.scss";
 @import "./sass/input.scss";
 @import "./sass/form.scss";
-@import "./sass/tab.scss";
+// @import "./sass/tab.scss";
 @import "./sass/nav.scss";
 
-
-@import "./sass/utils.scss";
 
 @import "./sass/grid.scss";
 

@@ -1,27 +1,26 @@
-// Vertical-rhythm size
-.sm-v {
-    font-size: $half-line-height; /* equiv 12px */
-    line-height: $line-height;
-    padding-top: 0;
-    padding-bottom: 0;
-    margin-bottom: 0;
+// Vertical-rhythm box
+.sm {
+    font-size: $half-line-height!important; /* equiv 12px */
+    line-height: $line-height!important;
+    padding: 0 $half-line-height / 2!important;
 }
-.md-v {
+.md {
     font-size: $half-line-height + 2px; /* equiv 14px */
     line-height: $line-height;
-    padding-top: $half-line-height / 2;
-    padding-bottom: $half-line-height / 2;
+    padding: $half-line-height / 2 $line-height;
     margin-bottom: $half-line-height;
 }
-.lg-v {
+.lg {
     font-size: $half-line-height + 4px; /* equiv 18px */
     line-height: $line-height * 2;
     margin-bottom: $line-height;
+    padding: 0 $line-height * 2;
 }
-.xl-v {
-    font-size:  $half-line-height + 10; /* equiv 22px */
+.xl {
+    font-size: $half-line-height + 10; /* equiv 22px */
     line-height: $line-height * 3;
     margin-bottom: $line-height;
+    padding: 0 $line-height * 3;
 }
 
 // Align

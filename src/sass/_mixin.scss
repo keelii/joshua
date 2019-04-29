@@ -4,5 +4,15 @@
     box-shadow: inset 0 0 0 $width $color;
 }
 @mixin transition {
-    transition: all .2s ease;
+    transition: all 0.2s ease;
 }
+
+/**
+
+With border	With box-shadow
+border: 1px solid red	box-shadow: inset 0 0 0 -1px red
+border-top: 1px solid red	box-shadow: inset 0 1px 0 0 red
+border-right: 1px solid red	box-shadow: inset -1px 0 0 red
+border-bottom: 1px solid red	box-shadow: inset 0 -1px 0 0 red
+border-left: 1px solid red	box-shadow: inset 1px 0 0 red
+*/

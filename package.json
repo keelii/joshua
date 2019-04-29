@@ -1,10 +1,9 @@
 {
-  "name": "better.css",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "@devfe/better.css",
+  "version": "0.0.1",
+  "main": "dist/main.css",
   "scripts": {
     "start": "parcel src/template/page-*.njk -p 8989",
-    "start:doc": "parcel src/template/doc.njk -p 8988",
     "sass": "parcel watch src/main.scss",
     "grid": "node bin/generate-grid.js > src/sass/_grid-col.scss",
     "build": "rm -rf dist && parcel build src/main.scss && cleancss -o dist/main.min.css dist/main.css",

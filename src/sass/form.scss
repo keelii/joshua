@@ -1,13 +1,3 @@
-// label:first-child {
-//     margin-right: 1em;
-
-//     + input:not([type="checkbox"]):not([type="radio"]), 
-//     + textarea,
-//     + select {
-//         margin-top: 1em;
-//     }
-// }
-
 .form {
     p {
         padding-top: 0;
@@ -15,7 +5,7 @@
     }
     .custom-input {
         height: $line-height * 1.5;
-        line-height: $line-height * 1.5; 
+        line-height: $line-height * 1.5;
     }
     label:first-child {
         display: inline-block;
@@ -24,22 +14,17 @@
         width: 10rem;
         text-align: right;
     }
-    textarea {
-        min-height: $line-height * 4;
-    }
-    input, textarea, select {
-        margin-bottom: 0!important;
-        margin-top: 0!important;
+    input,
+    textarea,
+    select {
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
         vertical-align: middle;
     }
-    button, .button, 
-    [type=reset],
-    [type=button],
-    [type=submit] {
-        min-width: 6rem;
-    }
+    textarea { vertical-align: top; }
     .form-tip {
-        @include v-rhythm-font( 6 );
+        @include v-rhythm-font(6);
+        margin-left: 1em;
     }
     &.stacked {
         p {
@@ -55,33 +40,36 @@
         }
     }
     &.full-width {
-        input, textarea, select {
+        input,
+        textarea,
+        select {
             width: 100%;
         }
+        .form-tip { margin-left: 0; }
     }
     // .row {
     //     margin-bottom: 0!important;
     // }
-    // input:not([type="checkbox"]):not([type="radio"]), 
-    // textarea, 
+    // input:not([type="checkbox"]):not([type="radio"]),
+    // textarea,
     // select { width: 100%; }
     // p {
-    //     input:not([type="checkbox"]):not([type="radio"]), 
-    //     textarea, 
+    //     input:not([type="checkbox"]):not([type="radio"]),
+    //     textarea,
     //     select {
     //         margin-bottom: 0;
     //     }
     // }
     // &.inline {
-    //     input:not([type="checkbox"]):not([type="radio"]), 
-    //     textarea, 
+    //     input:not([type="checkbox"]):not([type="radio"]),
+    //     textarea,
     //     select { width: auto; }
     //     label:first-child {
     //         width: $line-height * 8;
     //         text-align: right;
     //         display: inline-block;
     //         vertical-align: middle;
-    //         + input, 
+    //         + input,
     //         + textarea,
     //         + select {
     //             margin-top: 0;
