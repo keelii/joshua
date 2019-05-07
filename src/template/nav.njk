@@ -1,5 +1,5 @@
 {% macro navItem(name, active) %}
-    <a {% if name == active %}class="current"{% endif %} 
+    <a {% if name == active %}class="current"{% endif %}
         data-href="./page-{{ name }}.html">{{ name | title }}</a>
 {% endmacro %}
 
@@ -13,6 +13,8 @@
     {{ navItem('form', active) }}
     <span>◈</span>
     {{ navItem('typo', active) }}
+    <span>◈</span>
+    {{ navItem('components', active) }}
     <a>
         {{ CustomInput('Show Lines', 'checkbox') }}
         {# <span class="custom-input">

@@ -40,7 +40,7 @@
         }
     }
     &.full-width {
-        input,
+        input:not([type="button"]):not([type="submit"]):not([type="reset"]),
         textarea,
         select {
             width: 100%;

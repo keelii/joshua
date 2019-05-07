@@ -5,6 +5,7 @@ const env = nunjucks.configure('./src/template', {
 })
 const data = {
     name: 'keelii',
+    loremText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.',
     grid: {
         row: 'row',
         col: 'col',
@@ -19,14 +20,14 @@ const data = {
     },
     input: {
         button: [
-            "button", "reset", "submit", 
+            "button", "reset", "submit",
         ],
         interactive: [
             "checkbox", "radio", "range", "color",  "image", "file", "hidden",
         ],
         text: [
-            "text",  "password", "number", "url", "search", "email", "tel", 
-            "datetime", 
+            "text",  "password", "number", "url", "search", "email", "tel",
+            "datetime",
         ],
         time: [
             "date", "datetime-local", "week", "month", "time",
@@ -76,7 +77,7 @@ const RowTag = function(data) {
         return new nunjucks.runtime.SafeString(`<div class="${cNames.join(' ')}">${env.renderString(bodyStr, data)}</div>`)
     }
 }
-// 
+//
 /**
  * 删格列
 {% Col default=[1,3], sm=[1], md=[1,2], lg=[1,3], xl=[1,6] %}
@@ -117,7 +118,7 @@ const ColTag = function(data) {
             data.grid.breakpoints.forEach(({prefix}) => {
                 if (kw[prefix]) {
                     cNames.push(
-                        getColumnClass(prefix, 
+                        getColumnClass(prefix,
                             kw[prefix].filter(d => typeof d === 'number'))
                     )
                 }

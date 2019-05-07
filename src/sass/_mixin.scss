@@ -16,3 +16,7 @@ border-right: 1px solid red	box-shadow: inset -1px 0 0 red
 border-bottom: 1px solid red	box-shadow: inset 0 -1px 0 0 red
 border-left: 1px solid red	box-shadow: inset 1px 0 0 red
 */
+
+@mixin colorBackground($type) {
+    background-color: map-get($color, $type)
+}

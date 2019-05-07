@@ -1,0 +1,58 @@
+{% extends "layout.njk" %}
+
+{% block body %}
+
+{% set active = 'components' %}
+{% include "nav.njk" %}
+
+
+{% macro message(content, type='', close=False) %}
+    <span class="message {{ type }} {% if close %}close{% endif %}">{{ content }} <a href="#none">More</a>
+    {% if close %}<ins></ins>{% endif %}
+    </span>
+{% endmacro %}
+
+<fieldset>
+    <legend>Message</legend>
+    <div class="row">
+        <div class="col-1-2">
+            <p>
+                {{ message(loremText) }}
+            </p>
+            <p>
+                {{ message('Hello, This is a message component.', 'success') }}
+            </p>
+            <p>
+                {{ message('Hello, This is a message component.', 'warning') }}
+            </p>
+            <p>
+                {{ message('Hello, This is a message component.', 'info') }}
+            </p>
+            <p>
+                {{ message('Hello, This is a message component.', 'error') }}
+            </p>
+        </div>
+        <div class="col-1-2">
+            <p>
+                {{ message(loremText, close=true) }}
+            </p>
+            <p>
+                {{ message('Hello, This is a message component.', 'success', close=true) }}
+            </p>
+            <p>
+                {{ message('Hello, This is a message component.', 'warning', close=true) }}
+            </p>
+            <p>
+                {{ message('Hello, This is a message component.', 'info', close=true) }}
+            </p>
+            <p>
+                {{ message('Hello, This is a message component.', 'error', close=true) }}
+            </p>
+        </div>
+
+    </div>
+</fieldset>
+
+
+
+{% endblock body %}
