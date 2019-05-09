@@ -15,10 +15,21 @@
 
 <fieldset>
     <legend>Buttons</legend>
-    <input class="btn" type="button" value="input:button" />
-    <button class="btn">button</button>
-    <a href="#none" class="btn">a.btn</a>
-    <span class="btn">span.btn</span>
+    <div class="row">
+        <div class="col-1-2">
+            <input class="btn" type="button" value="input:button" />
+            <button class="btn">button</button>
+            <a href="#none" class="btn">a.btn</a>
+            <span class="btn">span.btn</span>
+        </div>
+        <div class="col-1-2">
+            <input class="btn success" type="button" value="input:button" />
+            <button class="btn info">button</button>
+            <a href="#none" class="btn warning">a.btn</a>
+            <span class="btn error">span.btn</span>
+        </div>
+    </div>
+
 </fieldset>
 
 {{ lorem() }}
@@ -48,8 +59,12 @@
             <button class="btn outline {{ item.prefix }}">button</button>
             <a href="#none" class="btn outline {{ item.prefix }}">a.btn</a>
         </p>
-
     {% endfor %}
+    <p>
+        <button class="btn success">success</button>
+        <button class="btn info">info</button>
+        <button class="btn info">info</button>
+    </p>
 </fieldset>
 
 {{ lorem() }}

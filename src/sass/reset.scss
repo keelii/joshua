@@ -27,10 +27,10 @@ textarea {
 
 fieldset {
     legend {
-        margin-bottom: $line-height;
+        margin-bottom: var(--line-height);
     }
-    padding: 0 $half-line-height;
+    padding: 0 var(--half-line-height);
     border: 1px solid #ccc;
     border-radius: 2px;
-    margin-bottom: $line-height - 2px;
+    margin-bottom: var(--line-height) - 2px;
 }

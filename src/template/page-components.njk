@@ -6,8 +6,9 @@
 {% include "nav.njk" %}
 
 
-{% macro message(content, type='', close=False) %}
-    <span class="message {{ type }} {% if close %}close{% endif %}">{{ content }} <a href="#none">More</a>
+{% macro message(content, type='', close=false, more=true) %}
+    <span class="message {{ type }} {% if close %}close{% endif %}">{{ content }}
+    {% if more %} <a href="#none">More</a> {% endif %}
     {% if close %}<ins></ins>{% endif %}
     </span>
 {% endmacro %}
@@ -53,6 +54,67 @@
     </div>
 </fieldset>
 
+<fieldset>
+    <legend>Messages(.full-width)</legend>
+    <p>
+        {{ message(loremText, 'full-width', close=true) }}
+    </p>
+    <p>
+        {{ message('Hello, This is a message component.', 'full-width success') }}
+    </p>
+    <p>
+        {{ message('Hello, This is a message component.', 'full-width warning') }}
+    </p>
+    <p>
+        {{ message('Hello, This is a message component.', 'full-width info') }}
+    </p>
+    <p>
+        {{ message('Hello, This is a message component.', 'full-width error') }}
+    </p>
+</fieldset>
+
+<fieldset style="position: relative; min-height: 40em;">
+    <legend>Messages</legend>
+    <ul class="messages">
+        <li>
+            {{ message(loremText) }}
+        </li>
+        <li>
+            {{ message('Hello, This is a message component.', 'success') }}
+        </li>
+        <li>
+            {{ message('Hello, This is a message component.', 'warning') }}
+        </li>
+        <li>
+            {{ message('Hello, This is a message component.', 'info') }}
+        </li>
+        <li>
+            {{ message('Hello, This is a message component.', 'error') }}
+        </li>
+    </ul>
+</fieldset>
+
+
+<fieldset>
+    <legend>Messages(.toast)</legend>
+    <div class="toast center">
+        {{ message('toast center', more=false) }}
+    </div>
+    <div class="toast left">
+        {{ message('toast left', more=false) }}
+    </div>
+    <div class="toast right">
+        {{ message('toast right', more=false) }}
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.toast').forEach(t => {
+                t.classList.add('show')
+            })
+        })
+    </script>
+</fieldset>
 
 
 {% endblock body %}

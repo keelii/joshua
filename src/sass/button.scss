@@ -5,13 +5,13 @@
     display: inline-block;
     vertical-align: top;
 
-    color: $bg-color;
-    background: $primary-color;
+    color: var(--bg-color);
+    background: #111111;
     text-decoration: none;
+    border-radius: 2px;
 
     user-select: none;
 
-    @include border(1.5px, $primary-color);
     @include transition;
 
     &:active {
@@ -27,7 +27,8 @@
         cursor: not-allowed;
     }
     &.outline {
-        color: $primary-color;
+        @include border(1.5px, #111111);
+        color: #111111;
         background: none;
 
         &:hover,
@@ -47,13 +48,13 @@
 
     // &.lg {
     //     @extend .lg-v;
-    //     padding-left: $line-height * 2;
-    //     padding-right: $line-height * 2;
+    //     padding-left: var(--line-height) * 2;
+    //     padding-right: var(--line-height) * 2;
     // }
     // &.xl {
     //     @extend .xl-v;
-    //     padding-left: $line-height * 3;
-    //     padding-right: $line-height * 3;
+    //     padding-left: var(--line-height) * 3;
+    //     padding-right: var(--line-height) * 3;
     // }
 }
 
@@ -62,9 +63,9 @@
 // [type=button],
 // [type=submit] {
 //     &.small {
-//         // padding: $line-height / 4;
-//         padding: $line-height / 6 $line-height;
+//         // padding: var(--line-height) / 4;
+//         padding: var(--line-height) / 6 $line-height;
 //         height: auto;
-//         margin-bottom: $line-height / 2;
+//         margin-bottom: var(--line-height) / 2;
 //     }
 // }

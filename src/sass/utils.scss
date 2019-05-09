@@ -1,26 +1,26 @@
 // Vertical-rhythm box
 .sm {
-    font-size: $half-line-height!important; /* equiv 12px */
-    line-height: $line-height!important;
-    padding: 0 $half-line-height / 2!important;
+    font-size: var(--half-line-height)!important; /* equiv 12px */
+    line-height: var(--line-height)!important;
+    padding: 0 calc(var(--half-line-height) / 2)!important;
 }
 .md {
-    font-size: $half-line-height + 2px; /* equiv 14px */
-    line-height: $line-height;
-    padding: $half-line-height / 2 $line-height;
-    margin-bottom: $half-line-height;
+    font-size: calc(var(--half-line-height) + 2px); /* equiv 14px */
+    line-height: var(--line-height);
+    padding: calc(var(--half-line-height) / 2) var(--line-height);
+    margin-bottom: var(--half-line-height);
 }
 .lg {
-    font-size: $half-line-height + 4px; /* equiv 18px */
-    line-height: $line-height * 2;
-    margin-bottom: $line-height;
-    padding: 0 $line-height * 2;
+    font-size: calc(var(--half-line-height) + 4px); /* equiv 18px */
+    line-height: calc(var(--line-height) * 2);
+    margin-bottom: var(--line-height);
+    padding: 0 calc(var(--line-height) * 2);
 }
 .xl {
-    font-size: $half-line-height + 10; /* equiv 22px */
-    line-height: $line-height * 3;
-    margin-bottom: $line-height;
-    padding: 0 $line-height * 3;
+    font-size: calc(var(--half-line-height) + 10px); /* equiv 22px */
+    line-height: calc(var(--line-height) * 3);
+    margin-bottom: var(--line-height);
+    padding: 0 calc(var(--line-height) * 3);
 }
 
 // Align
@@ -37,7 +37,7 @@
     display: flex;
     justify-content: space-between;
 }
-.center {
+.center, .toast {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,6 +52,10 @@
     align-items: center;
     justify-content: flex-start;
 }
+.bottom {
+    position: fixed;
+    bottom: 0;
+}
 
 // utils
 .full-width {
@@ -61,12 +65,23 @@
     display: none !important;
 }
 
+// colors
+.success { @include colorBackground('success') }
+.warning { @include colorBackground('warning') }
+.info    { @include colorBackground('info') }
+.error   { @include colorBackground('error') }
+
+.success, .warning, .info, .error {
+    color: #fff;
+    border: none
+}
+
 // debug
 .lorem-text {
     display: none;
 }
 .lines {
-    background: linear-gradient(to bottom, $bg-color, $bg-color 95%, #aaa 100%, #aaa);
+    background: linear-gradient(to bottom, var(--bg-color), var(--bg-color) 95%, #aaa 100%, #aaa);
     background-size: 100% 24px;
     .lorem-text {
         display: block;

@@ -18,5 +18,46 @@ border-left: 1px solid red	box-shadow: inset 1px 0 0 red
 */
 
 @mixin colorBackground($type) {
-    background-color: map-get($color, $type)
+    background-color: map-get($color, $type)!important;
+}
+
+@mixin h1 {
+    font-size: 1.625em; /* = 26px */
+    line-height: 1.8462;
+    margin: 0 0 0.9231em 0;
+}
+@mixin h2() {
+    font-size: 1.5em; /* = 24px */
+    line-height: 1;
+    margin: 0 0 1em 0;
+}
+@mixin h3() {
+    font-size: 1.375em; /* = 22px */
+    line-height: 1.09090909;
+    margin: 0 0 1.09090909em 0;
+}
+@mixin h4() {
+    font-size: 1.25em; /* = 20px */
+    line-height: 1.2;
+    margin: 0 0 1.2em 0;
+}
+@mixin h5() {
+    font-size: 1.125em; /* = 18px */
+    line-height: 1.3333333;
+    margin: 0 0 1.3333333em 0;
+}
+@mixin h6() {
+    font-size: 1em; /* = 16px */
+    line-height: 1.5;
+    margin: 0 0 1.5em 0;
+}
+@mixin small() {
+    font-size: 0.875em; /* = 14px */
+    line-height: 1.7143;
+    margin: 1.7143em 0 1.7143em 0;
+}
+@mixin smaller() {
+    font-size: 0.75em; /* = 12px */
+    line-height: 2;
+    margin: 2em 0 2em 0;
 }

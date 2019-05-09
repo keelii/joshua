@@ -1,11 +1,11 @@
 .form {
     p {
         padding-top: 0;
-        margin-bottom: $line-height / 2;
+        margin-bottom: calc(var(--line-height) / 2);
     }
     .custom-input {
-        height: $line-height * 1.5;
-        line-height: $line-height * 1.5;
+        height: calc(var(--line-height) * 1.5);
+        line-height: calc(var(--line-height) * 1.5);
     }
     label:first-child {
         display: inline-block;
@@ -23,20 +23,20 @@
     }
     textarea { vertical-align: top; }
     .form-tip {
-        @include v-rhythm-font(6);
+        @include smaller();
         margin-left: 1em;
     }
     &.stacked {
         p {
-            margin-bottom: $line-height;
+            margin-bottom: var(--line-height);
         }
         textarea {
-            min-height: $line-height * 4 - 12px;
+            min-height: calc(var(--line-height) * 4 - 12px);
         }
         label:first-child {
             display: block;
             text-align: left;
-            margin-bottom: $line-height / 2;
+            margin-bottom: calc(var(--line-height) / 2);
         }
     }
     &.full-width {
@@ -47,36 +47,4 @@
         }
         .form-tip { margin-left: 0; }
     }
-    // .row {
-    //     margin-bottom: 0!important;
-    // }
-    // input:not([type="checkbox"]):not([type="radio"]),
-    // textarea,
-    // select { width: 100%; }
-    // p {
-    //     input:not([type="checkbox"]):not([type="radio"]),
-    //     textarea,
-    //     select {
-    //         margin-bottom: 0;
-    //     }
-    // }
-    // &.inline {
-    //     input:not([type="checkbox"]):not([type="radio"]),
-    //     textarea,
-    //     select { width: auto; }
-    //     label:first-child {
-    //         width: $line-height * 8;
-    //         text-align: right;
-    //         display: inline-block;
-    //         vertical-align: middle;
-    //         + input,
-    //         + textarea,
-    //         + select {
-    //             margin-top: 0;
-    //         }
-    //         + textarea {
-    //             vertical-align: text-top;
-    //         }
-    //     }
-    // }
 }

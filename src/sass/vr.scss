@@ -4,7 +4,7 @@
  */
 
 html, body {
-    font: 16px/24px $font-family;
+    font: 16px/24px -apple-system, BlinkMacSystemFont, Arial, Helvetica;;
 }
 
 $v-rhythm-levels: (
@@ -51,7 +51,7 @@ arr.map(item => item.map(unit => `${unit/16}rem`))
 h1 {
     @include v-rhythm(1);
     &:first-child {
-        padding-top: $line-height;
+        padding-top: var(--line-height);
         margin-bottom: 0;
     }
 }

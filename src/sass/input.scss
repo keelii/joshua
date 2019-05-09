@@ -1,65 +1,35 @@
 @import "./mixin.scss";
 
-// input[type=text],
-// input[type=password],
-// input[type=email],
-// input[type=search],
-// input[type=number],
-// input[type=tel],
-// input[type=url],
-// input[type=date],
-// input[type=datetime],
-// input[type=datetime-local],
-// input[type=week],
-// input[type=month],
-// input[type=time],
 .input,
 .select,
 .textarea {
     vertical-align: top;
 
-    @include border(1px, $gray-color);
+    @include border(1px, #a4a4a4);
     // @include transition;
     @extend .md;
-    padding-left: $half-line-height;
-    padding-right: $half-line-height;   
-    // Sizes
-    // &.sm {
-    //     @extend .sm;
-    //     padding-left: $half-line-height / 2;
-    //     padding-right: $half-line-height / 2;
-    // }
-    // &.md, & {
-
-    // }
-    // &.lg {
-    //     padding-left: $line-height / 2;
-    //     padding-right: $line-height / 2;
-    // }
-    // &.xl {
-    //     padding-left: $line-height;
-    //     padding-right: $line-height;
-    // }
+    padding-left: var(--half-line-height);
+    padding-right: var(--half-line-height);
 }
 
 .textarea {
     line-height: 1.5em !important;
 
     &.sm {
-        min-height: $line-height * 2;
+        min-height: calc(var(--line-height) * 2);
     }
     &.md,
     & {
-        min-height: $line-height * 4;
+        min-height: calc(var(--line-height) * 4);
     }
     &.lg {
-        min-height: $line-height * 6;
-        padding-top: $line-height / 2;
-        padding-bottom: $line-height / 2;
+        min-height: calc(var(--line-height) * 6);
+        padding-top: calc(var(--line-height) / 2);
+        padding-bottom: calc(var(--line-height) / 2);
     }
     &.xl {
-        min-height: $line-height * 8;
-        padding: $line-height;
+        min-height: calc(var(--line-height) * 8);
+        padding: var(--line-height);
     }
 }
 
@@ -70,12 +40,12 @@
 
 .custom-input {
     position: relative;
-    padding-left: $font-size;
-    margin-right: $line-height / 2;
+    padding-left: var(--font-size);
+    margin-right: var(--line-height) / 2;
     display: inline-block;
     vertical-align: middle;
-    height: $font-size;
-    line-height: $font-size;
+    height: var(--font-size);
+    line-height: var(--font-size);
     input {
         position: absolute;
         z-index: -1;
@@ -110,20 +80,20 @@
             position: absolute;
             top: 0;
             display: block;
-            width: $font-size;
-            height: $font-size;
+            width: var(--font-size);
+            height: var(--font-size);
             content: "";
         }
 
         &::before {
-            left: -$font-size;
+            left: var(--font-size-);
             // pointer-events: none;
             background-color: #fff;
             border: 1px #adb5bd solid;
         }
         &::after {
             top: 1px;
-            left: -$font-size + 1px;
+            left: calc(var(--font-size-) + 1px);
             background: no-repeat 50% / 50% 50%;
         }
     }

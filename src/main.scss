@@ -2,19 +2,18 @@
 @import "./sass/_mixin.scss";
 
 @import "./sass/reset.scss";
-@import "sass/vr";
+
+@import "./sass/grid.scss";
+
+@import "sass/typo";
+//@import "sass/vr";
 
 @import "./sass/utils.scss";
 
 @import "./sass/button.scss";
 @import "./sass/input.scss";
 @import "./sass/form.scss";
-// @import "./sass/tab.scss";
 @import "./sass/nav.scss";
 
 @import "./sass/message.scss";
 
-
-@import "./sass/grid.scss";
-
-// @import "./sass/simple-grid.scss";

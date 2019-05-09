@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Serif:400|PT+Serif:400");
+@import url("https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700");
+
+html, body {
+    font: var(--font-size)/var(--line-height) -apple-system, BlinkMacSystemFont, Arial, Helvetica;;
+}
+
+.typo {
+    &.serif {
+        &, & code {
+            font-family: var(--font-serif-en), var(--font-serif-cn), serif;
+        }
+    }
+    &.sans-serif {
+        &, & code {
+            font-family: var(--font-sans-serif-en), var(--font-sans-serif-cn), sans-serif;
+        }
+    }
+
+    // color theme
+    background-color: var(--bg-color);
+    color: var(--fore-color);
+
+    p, ul, ol, dl, blockquote, pre,
+    table, figure, caption {
+        font-size: 1em; /* = 16px */
+        line-height: 1.5;
+        margin: 0 0 1.5em 0;
+    }
+
+    li p, li ul {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    a {
+        text-decoration: none;
+        color: var(--link-color);
+    }
+
+    // vertical rhythm
+    strong, code, em, sub, sup, footnote {
+        line-height: 1em;
+    }
+
+    h1 { @include h1(); }
+    h2 { @include h2(); }
+    h3 { @include h3(); }
+    h4 { @include h4(); }
+    h5 { @include h5(); }
+    h6 { @include h6(); }
+    .small { @include small(); }
+    .smaller { @include smaller(); }
+
+    ul, ol {
+        padding-left: var(--line-height);
+    }
+
+    blockquote {
+        font-family: var(--font-secondary-en), var(--font-secondary-cn);
+        background-color: var(--color-blockquote-bg);
+        color: var(--color-blockquote);
+        padding: var(--line-height);
+        border-left: 3px solid var(--color-blockquote-border);
+        p:last-child {
+            margin-bottom: 0;
+        }
+        p:first-child {
+            margin-top: 0;
+        }
+    }
+
+    figure {
+        text-align: center;
+        figcaption {
+            color: #ccc;
+            min-height: var(--line-height);
+        }
+    }
+
+    $table-row-color: rgba(230, 230, 230, 0.2);
+    $table-th-color: rgba(230, 230, 230, 0.4);
+    table {
+        border-collapse: collapse;
+        //font-size: 0.875em; /* = 14px */
+        //line-height: 1.7143;
+        //margin: 1.7143em 0 1.7143em 0;
+
+        tr:nth-child(odd) {
+            background: $table-row-color;
+        }
+        td, th {
+            p, blockquote {
+                margin-bottom: 0;
+            }
+            blockquote {
+                padding: 0 calc(var(--line-height) / 2)
+            }
+        }
+        td, th {
+            padding: calc(var(--line-height) / 2);
+        }
+        th {
+            font-weight: bold;
+            background: $table-th-color;
+        }
+    }
+
+    pre, code {
+        white-space: pre;
+    }
+    pre {
+        background-color: var(--code-mark-bg);
+        padding: var(--line-height);
+        overflow-x: auto;
+        code {
+            background: none;
+            padding: 0;
+        }
+    }
+    code {
+        border-radius: 2px;
+        padding: 0 0.2em;
+        white-space: pre-wrap;
+        background-color: var(--code-mark-bg);
+        font-family: var(--font-mono);
+    }
+    abbr[title] {
+        border-bottom: none;
+        text-decoration: underline dotted;
+    }
+    mark {
+        background-color: var(--mark-bg);
+    }
+    hr {
+        margin: calc(var(--line-height) * 2) auto;
+        border: 0;
+        border-bottom: 1px solid var(--color-blockquote-border);
+        height: 0;
+        width: 61.8%;
+        overflow: hidden;
+    }
+    kbd {
+        display: inline-block;
+        padding: 0 .5em;
+        font-family: var(--font-mono), monospace;
+        line-height: calc(var(--font-size) + 4px);
+        background-color: var(--code-mark-bg);
+        border: 1px solid var(--color-blockquote-border);
+        border-radius: 3px;
+        box-shadow: 0 1px 0 rgba(12,13,14,0.2),0 0 0 2px var(--bg-color) inset;
+        white-space: nowrap
+    }
+    footnote {
+        vertical-align: top;
+        margin-top: -2px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 22.66em;
+        border: 0;
+    }
+}
+

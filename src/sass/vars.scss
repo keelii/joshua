@@ -1,25 +1,3 @@
-$fore-color: #000000;
-$bg-color: #ffffff;
-
-$primary-color: #111111;
-$secondary-color: #104cfb;
-$gray-color: #a4a4a4;
-
-$grid-columns: 12;
-
-$font-family: -apple-system, BlinkMacSystemFont, Arial, Helvetica;
-
-$font-size: 16px;
-$line-height: 24px;
-$half-line-height: 12px;
-
-$gutter: 12px;
-
-$breakpoint-sm: 35.5rem;
-$breakpoint-md: 48rem;
-$breakpoint-lg: 64rem;
-$breakpoint-xl: 80rem;
-
 // colors
 $color: (
     success: #0ce177,
@@ -27,3 +5,54 @@ $color: (
     info: #1fbfff,
     error: #ff2131,
 );
+
+:root {
+    --font-serif-en: "Source Serif Pro", "Crimson Text";
+    --font-serif-cn: "Noto Serif SC", "Noto Serif CJK SC", "Noto Serif CJK",
+    "Source Han Serif SC", "Source Han Serif CN", "Source Han Serif",
+    "source-han-serif-sc";
+    --font-sans-serif-en: -apple-system, BlinkMacSystemFont;
+    --font-sans-serif-cn: "Noto SC", "Noto CJK SC", "Noto CJK", "Source Han SC",
+    "Source Han CN", "Source Han", "source-han-sc";
+    --font-mono: "Latin Modern Mono", "SF Mono", monaco, "Consolas";
+    --font-secondary-en: "Crimson Text"; // Maybe you need this
+    --font-secondary-cn:  STKaiti, KaiTi, KaiTi_GB2312;
+
+    --font-size: 16px;
+    --font-size-: -16px;
+    --line-height: 24px;
+    --half-line-height: 12px;
+
+    // default
+    --bg-color: #FFFFFF;
+    --fore-color: #535664;
+    --link-color: #EF8354;
+    --color-blockquote-bg: rgba(243, 243, 246, 0.8);
+    --color-blockquote-border: #AFB5C0;
+    --color-blockquote: #4F5D75;
+    --code-mark-bg: rgba(191, 192, 192, 0.2);
+    --mark-bg: yellow;
+
+    // reading
+    .reading {
+        --bg-color: #F3E9D2;
+        --fore-color: #114B5F;
+        --link-color: #1A936F;
+        --color-blockquote-bg: rgba(198, 218, 191, 0.5);
+        --color-blockquote-border: #1A936F;
+        --color-blockquote: #4F5D75;
+        --code-mark-bg: rgba(198, 218, 191, 0.5);
+    }
+    .dark {
+        --bg-color: #232830;
+        --fore-color: #eeeeee;
+        --color-blockquote-bg: rgba(243, 243, 246, 0.2);
+        --color-blockquote-border: rgba(210, 214, 221, 0.5);
+        --color-blockquote: #999;
+        --code-mark-bg: rgba(238, 238, 238, 0.1);
+    }
+
+    //--global-anim-tween: cubic-bezier(0, 0, 0.2, 1);
+    --anim-tween: cubic-bezier(0, 0, 0.2, 1);
+}
+
