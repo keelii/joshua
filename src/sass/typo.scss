@@ -48,11 +48,14 @@ html, body {
     h4 { @include h4(); }
     h5 { @include h5(); }
     h6 { @include h6(); }
-    .small { @include small(); }
-    .smaller { @include smaller(); }
+    //.small { @include small(); }
+    //.smaller { @include smaller(); }
 
     ul, ol {
         padding-left: var(--line-height);
+    }
+    li {
+        font-variant-numeric: tabular-nums;
     }
 
     blockquote {
@@ -68,7 +71,9 @@ html, body {
             margin-top: 0;
         }
     }
-
+    img {
+        max-width: 100%;
+    }
     figure {
         text-align: center;
         figcaption {

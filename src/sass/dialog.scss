@@ -1,0 +1,25 @@
+dialog {
+    width: 40em;
+    margin: auto;
+    top: 2em;
+    border: 1px solid #111111;
+    border-radius: 2px;
+    padding: 0 var(--line-height);
+    background: #fff;
+    .btn {
+        margin-bottom: 0;
+    }
+    > *:first-child {
+        margin-top: var(--line-height);
+    }
+    p, header, footer {
+        margin-bottom: var(--line-height);
+    }
+    header {
+        font-weight: bold;
+    }
+    &.close ins {
+        //top: var(--line-height);
+        //right: var(--line-height);
+    }
+}
