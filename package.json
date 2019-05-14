@@ -1,6 +1,6 @@
 {
   "name": "@devfe/better.css",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "dist/main.css",
   "scripts": {
     "start": "parcel src/template/page-*.njk -p 8989",

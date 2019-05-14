@@ -35,6 +35,9 @@
         &:focus {
             background: none;
         }
+        svg {
+            fill: #111111;
+        }
     }
 
     // Sizes
@@ -56,6 +59,12 @@
     //     padding-left: var(--line-height) * 3;
     //     padding-right: var(--line-height) * 3;
     // }
+    svg {
+        width: calc(1em + 2px);
+        height: calc(1em + 2px);
+        fill: var(--bg-color);
+        vertical-align: text-bottom;
+    }
 }
 
 // button, .button,
