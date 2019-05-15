@@ -4,7 +4,8 @@
 
 ## Features
 
-* Super tiny file size(<7 kb)
+* Super tiny file size(**<4 KB** 😲 compressed & gzip)
+* Built-in simple responsive Grid system
 * Typography friendly (based on Vertical rhythm)
 * Typo with Light/Book/Dark theme support
 * Almost every CSS Variable rules
