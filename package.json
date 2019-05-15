@@ -1,18 +1,20 @@
 {
   "name": "@devfe/joshua",
-  "version": "0.0.0",
-  "main": "dist/main.css",
+  "version": "0.0.2",
+  "main": "dist/joshua.min.css",
   "scripts": {
     "start": "parcel src/template/page-*.njk -p 8989",
-    "sass": "parcel watch src/main.scss",
+    "sass": "parcel watch src/joshua.scss",
     "grid": "node bin/generate-grid.js > src/sass/_grid-col.scss",
-    "build": "rm -rf dist && parcel build src/main.scss && cleancss -o dist/main.min.css dist/main.css",
+    "clean": "rm -rf dist",
+    "build:css": "parcel build src/joshua.scss && cleancss -o dist/joshua.min.css dist/joshua.css",
+    "build:js": "cp src/joshua.js dist/joshua.js && ./node_modules/.bin/uglifyjs src/joshua.js > dist/joshua.min.js",
+    "build": "yarn clean && yarn build:css && yarn build:js",
     "size": "size-limit"
   },
   "size-limit": [
-    {
-      "path": "dist/main.min.css"
-    }
+    { "path": "dist/joshua.min.css" },
+    { "path": "dist/joshua.min.js" }
   ],
   "devDependencies": {
     "clean-css": "^4.2.1",
@@ -23,6 +25,7 @@
     "rework": "^1.0.1",
     "rework-pure-grids": "^1.0.0",
     "sass": "^1.17.3",
-    "size-limit": "^1.0.1"
+    "size-limit": "^1.0.1",
+    "uglify-es": "^3.3.9"
   }
 }

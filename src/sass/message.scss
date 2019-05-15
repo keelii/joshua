@@ -15,7 +15,7 @@
         display: block;
         max-width: initial;
     }
-    &.close {
+    &[data-action] {
         padding-right: var(--font-size-2);
     }
 }

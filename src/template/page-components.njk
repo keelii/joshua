@@ -7,10 +7,16 @@
 
 
 {% macro message(content, type='', close=false, more=true) %}
-    <span class="message {{ type }} {% if close %}close{% endif %}">{{ content }}
+    <span class="message {{ type }}" {% if close %}data-action="remove"{% endif %}>{{ content }}
     {% if more %} <a href="#none">More</a> {% endif %}
-    {% if close %}<ins></ins>{% endif %}
+    {% if close %}<ins data-trigger></ins>{% endif %}
     </span>
+{% endmacro %}
+
+{% macro toast(content, pos) %}
+    <div class="toast {{ pos }} show" data-action="removeClass show,delay 200 remove">
+        <span class="message" data-trigger>{{ content }}</span>
+    </div>
 {% endmacro %}
 
 <fieldset>
@@ -97,15 +103,10 @@
 
 <fieldset>
     <legend>Messages(.toast)</legend>
-    <div class="toast center">
-        {{ message('toast center', more=false) }}
-    </div>
-    <div class="toast left">
-        {{ message('toast left', more=false) }}
-    </div>
-    <div class="toast right">
-        {{ message('toast right', more=false) }}
-    </div>
+
+    {{ toast('toast center', pos='center') }}
+    {{ toast('toast left', pos='left') }}
+    {{ toast('toast right', pos='right') }}
 
     <script>
         window.addEventListener('DOMContentLoaded', function() {
@@ -127,53 +128,54 @@
 
     </div>
     <div style="position: relative; min-height: 20em;">
-        <dialog open class="close">
+        <dialog open data-action="remove">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet dolorum, eaque earum facere, illum inventore labore libero natus numquam optio perferendis quae quidem recusandae similique, tempore unde vitae voluptates.</p>
             <p>
                 <button class="btn">OK</button>
                 <button class="btn">Cancel</button>
             </p>
-            <ins></ins>
+            <ins data-trigger></ins>
         </dialog>
     </div>
     <div style="position: relative; min-height: 20em;">
-        <dialog open class="close">
+        <dialog open data-action="remove">
             <header>Heading</header>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet dolorum, eaque earum facere, illum inventore labore libero natus numquam optio perferendis quae quidem recusandae similique, tempore unde vitae voluptates.</p>
             <p>
                 <button class="btn outline">OK</button>
                 <button class="btn outline">Cancel</button>
             </p>
-            <ins>×</ins>
+            <ins data-trigger>×</ins>
         </dialog>
     </div>
     <div style="position: relative; min-height: 20em;">
-        <dialog open class="success">
+        <dialog open class="success" data-action="remove">
             <header>Heading</header>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet dolorum, eaque earum facere, illum inventore labore libero natus numquam optio perferendis quae quidem recusandae similique, tempore unde vitae voluptates.</p>
             <p class="tac">
                 <button class="btn outline">OK</button>
                 <button class="btn">Cancel</button>
-                <button class="btn outline">Cancel</button>
+                <button class="btn outline" data-trigger>Cancel</button>
                 <input class="btn" type="button" value="input">
             </p>
             <footer>footer text</footer>
         </dialog>
     </div>
     <div style="position: relative; min-height: 20em;">
-        <dialog open class="close">
+        <button class="btn" data-trigger="#dialog-click">click to toggle dialog</button>
+        <dialog id="dialog-click" data-action="toggleAttr open">
             <header class="tac">
                 <button class="btn outline">OK</button>
-                <button class="btn">Cancel</button>
+                <button class="btn" data-trigger>Cancel</button>
             </header>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet dolorum, eaque earum facere, illum inventore labore libero natus numquam optio perferendis quae quidem recusandae similique, tempore unde vitae voluptates.</p>
             <p class="tac">
                 <button class="btn outline">OK</button>
-                <button class="btn">Cancel</button>
-                <button class="btn outline">Cancel</button>
+                <button class="btn" data-trigger>Cancel</button>
+                <button class="btn outline" data-trigger>Cancel</button>
                 <input class="btn" type="button" value="input">
             </p>
-            <ins></ins>
+            <ins data-trigger></ins>
         </dialog>
     </div>
 </fieldset>
