@@ -2,11 +2,11 @@
     position: relative;
     display: inline-block;
     margin-bottom: var(--line-height);
-    padding: var(--half-line-height) 1em;
+    padding: var(--line-height-half) 1em;
     border: 1px solid #eaeaea;
     border-radius: 2px;
     background-color: #fff;
-    box-shadow: 0 5px var(--half-line-height) 0 rgba(227, 227, 227, 0.5);
+    box-shadow: 0 5px var(--line-height-half) 0 rgba(227, 227, 227, 0.5);
 
     max-width: 20em;
     word-break: break-all;
@@ -16,7 +16,7 @@
         max-width: initial;
     }
     &.close {
-        padding-right: calc(var(--font-size) * 2);
+        padding-right: var(--font-size-2);
     }
 }
 .messages {

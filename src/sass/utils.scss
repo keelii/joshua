@@ -1,23 +1,23 @@
 // Vertical-rhythm box
 .sm {
-    font-size: var(--half-line-height)!important; /* equiv 12px */
+    font-size: var(--line-height-half)!important; /* equiv 12px */
     line-height: var(--line-height)!important;
-    padding: 0 calc(var(--half-line-height) / 2)!important;
+    padding: 0 var(--line-height-1q)!important;
 }
 .md {
-    font-size: calc(var(--half-line-height) + 2px); /* equiv 14px */
+    font-size: calc(var(--line-height-half) + 2px); /* equiv 14px */
     line-height: var(--line-height);
-    padding: calc(var(--half-line-height) / 2) var(--line-height);
-    margin-bottom: var(--half-line-height);
+    padding: var(--line-height-1q) var(--line-height);
+    margin-bottom: var(--line-height-half);
 }
 .lg {
-    font-size: calc(var(--half-line-height) + 4px); /* equiv 18px */
-    line-height: calc(var(--line-height) * 2);
+    font-size: calc(var(--line-height-half) + 4px); /* equiv 18px */
+    line-height: var(--line-height-2);
     margin-bottom: var(--line-height);
-    padding: 0 calc(var(--line-height) * 2);
+    padding: 0 var(--line-height-2);
 }
 .xl {
-    font-size: calc(var(--half-line-height) + 10px); /* equiv 22px */
+    font-size: calc(var(--line-height-half) + 10px); /* equiv 22px */
     line-height: calc(var(--line-height) * 3);
     margin-bottom: var(--line-height);
     padding: 0 calc(var(--line-height) * 3);
@@ -109,7 +109,7 @@
     ins {
         cursor: pointer;
         position: absolute;
-        right: var(--half-line-height);
+        right: var(--line-height-half);
         top: var(--font-size);
         display: block;
         width: var(--font-size);
