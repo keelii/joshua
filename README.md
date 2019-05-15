@@ -1,6 +1,6 @@
 # joshua
 
-> A Modern Browser based CSS framework. heavily use flexbox, CSS variable and calc function, for build lightweight website.
+> A Modern Browser based CSS framework. heavily use flexbox, CSS variable and calc function, for build lightweight website with easy.
 
 ## Features
 
