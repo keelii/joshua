@@ -28,9 +28,12 @@ textarea {
 fieldset {
     legend {
         margin-bottom: var(--line-height);
+        background-color: var(--bg-color);
     }
     padding: 0 var(--half-line-height);
-    border: 1px solid #ccc;
+    border: 0;
     border-radius: 2px;
     margin-bottom: var(--line-height) - 2px;
+
+    @include shadow-border(1px, #ccc);
 }

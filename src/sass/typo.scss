@@ -1,5 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=PT+Serif:400|PT+Serif:400");
-@import url("https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700");
+$FONT-CDN: "https://fonts.googleapis.cnpmjs.org/css";
+
+@import url("#{$FONT-CDN}?family=PT+Serif:400|PT+Serif:400&font-display=swap");
+@import url("#{$FONT-CDN}?family=Source+Serif+Pro:400,600,700&font-display=swap");
 
 html, body {
     font: var(--font-size)/var(--line-height) -apple-system, BlinkMacSystemFont, Arial, Helvetica;;
