@@ -15,7 +15,7 @@
 * [writing-different](//writing-different.com)
 * ...
 
-## thanks
+## Thanks
 
 This project is inspired by [chota.css](https://jenil.github.io/chota/), [purecss](https://purecss.io/)
 
