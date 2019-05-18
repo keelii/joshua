@@ -14,6 +14,7 @@ describe('lambda compiler', function() {
         })
         it('should return correct token type', function() {
             assert.deepStrictEqual(tokenizer("'test'")[0], { type: 'string', value: 'test' })
+            assert.deepStrictEqual(tokenizer('"test\\" string"')[0], { type: 'string', value: 'test\\" string' })
 
             assert.deepStrictEqual(tokenizer('add(1,2)')[0].type, 'name')
             assert.deepStrictEqual(tokenizer('add(1,2)')[1].type, 'paren')

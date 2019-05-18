@@ -12,6 +12,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 *        plus(3, 1)
 *    })
 */
+
 function tokenizer(input) {
 	let current = 0;
 	let tokens = [];
@@ -20,11 +21,15 @@ function tokenizer(input) {
 
 		let char = input[current];
 
-		if (char === "'") {
+		if (char === "'" || char === '"') {
 			let value = '';
 			current++;
 			char = input[current];
-			while(char !== "'") {
+
+			while(char !== "'" && char !== '"' || input[current - 1] === '\\') {
+				if (char === undefined) {
+					throw new Error(`Char out of range.`)
+				}
 				value += char;
 				current++;
 				char = input[current];
@@ -105,7 +110,6 @@ function tokenizer(input) {
 			}
 			continue
 		}
-
 
 		throw new TypeError(`Unexcepted charactor "${char}".`)
 	}

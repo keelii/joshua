@@ -8,6 +8,7 @@
 *        plus(3, 1)
 *    })
 */
+
 export function tokenizer(input) {
 	let current = 0
 	let tokens = []
@@ -16,11 +17,15 @@ export function tokenizer(input) {
 
 		let char = input[current]
 
-		if (char === "'") {
+		if (char === "'" || char === '"') {
 			let value = ''
 			current++
 			char = input[current]
-			while(char !== "'") {
+
+			while(char !== "'" && char !== '"' || input[current - 1] === '\\') {
+				if (char === undefined) {
+					throw new Error(`Char out of range.`)
+				}
 				value += char
 				current++
 				char = input[current]
@@ -101,7 +106,6 @@ export function tokenizer(input) {
 			}
 			continue
 		}
-
 
 		throw new TypeError(`Unexcepted charactor "${char}".`)
 	}

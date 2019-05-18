@@ -2,15 +2,16 @@ import { compile } from './js/compiler.js'
 
 ;(function(config, window, document) {
     let cfg = Object.assign({
-        namespace: 'w'
+        namespace: 'w',
+        init: true
     }, config)
 
     let ns = cfg.namespace
-    let w = window
+    let w = null
     let d = document
 
     if (window[ns]) throw new Error(`Global variable [${ns}] is already defined.`)
-    if (typeof ns === 'string') w = window[ns] = {}
+    w = ns === 'global' ? window : {}
 
     /* Lang */
     // w.isStr = o => typeof o === 'string'
@@ -57,14 +58,21 @@ import { compile } from './js/compiler.js'
     }
 
     // UI Component init
-    w.toast = (content, pos) => {
+    w.toast = (content, pos, autoClose=true) => {
         let el = d.createElement('div')
-        el.className = `toast ${pos}`
-        el.innerHTML = `<span class="message" data-trigger="close">${content}</span>`
+        el.className = `toast ${pos||'center'}`
+        el.setAttribute('data-action', 'rmClass("show")delay(100,fn:rm())')
+        el.innerHTML = `<span class="message" data-click>${content}</span>`
         d.body.appendChild(el)
-        setTimeout(() => {
-            adClass(el, 'show')
-        }, 100)
+
+        let open = () => w.delay(100, () => w.adClass(el, 'show'))
+        let close = () => w.delay(3000, () => {
+            w.rmClass(el, 'show')
+            w.delay(100, () => w.rm(el))
+        })
+        open()
+        if (autoClose) close()
+        return { open, close }
     }
     w.dialog = (el) => {
         setAttr(el, 'open', true)
@@ -74,7 +82,6 @@ import { compile } from './js/compiler.js'
         let key = ns ? 'from' : type
         return `[data-${key}${ns?`="${ns}"`:''}]`
     }
-
     function getSameAncestor(node, namespace) {
         let parent = node.parentNode
         if (!parent) return null
@@ -91,7 +98,6 @@ import { compile } from './js/compiler.js'
             }
         }
     }
-
     function findIndex(list, node) {
         let index = null
         list.forEach((n, idx) => {
@@ -99,7 +105,6 @@ import { compile } from './js/compiler.js'
         })
         return index
     }
-
     function clickAction(target) {
         // Event namespace
         let ns = w.data(target, 'click')
@@ -147,6 +152,8 @@ import { compile } from './js/compiler.js'
                 }
 
                 try {
+                    // let execute = new Function('p1', 'p2', code)
+                    // execute(null, null)
                     eval(code)
                 } catch(e) {
                     console.error('Execute code error.', e)
@@ -157,7 +164,6 @@ import { compile } from './js/compiler.js'
             console.error('Can`t find action target.')
         }
     }
-
     function handleAction(type, target, fn) {
         if (w.hsData(target, type)) {
             fn(target)
@@ -168,8 +174,12 @@ import { compile } from './js/compiler.js'
         w.adEvent(document, 'click', ({target}) => handleAction('click', target, clickAction))
     }
 
-    // When dom ready, bind default action to triggers.
-    w.adEvent(window, 'DOMContentLoaded', domReady)
+    if (cfg.init) {
+        // When dom ready, bind default action to triggers.
+        w.adEvent(window, 'DOMContentLoaded', domReady)
+    }
+
+    window[ns] = w
 
 })(window.JOSHUA_CONFIG || {}, window, document)
 

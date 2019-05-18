@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../joshua.scss" />
     <script>
         window.JOSHUA_CONFIG = {
-            {#namespace: '$'#}
+            namespace: 'global'
         }
     </script>
     <script src="../joshua.js"></script>
@@ -31,7 +31,7 @@
         }
     </style>
 </head>
-<body>
+<body data-foo="'test foo bar \''">
 
 {% macro lorem() %}
 <p class="lorem-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
