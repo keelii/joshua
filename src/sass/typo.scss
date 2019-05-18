@@ -9,14 +9,12 @@ html, body {
 
 .typo {
     &.serif {
-        &, & code {
-            font-family: var(--font-serif-en), var(--font-serif-cn), serif;
-        }
+        font-family: var(--font-serif-en), var(--font-serif-cn), serif;
+        & code { font-family: var(--font-mono), var(--font-serif-en), var(--font-serif-cn), serif }
     }
     &.sans-serif {
-        &, & code {
-            font-family: var(--font-sans-serif-en), var(--font-sans-serif-cn), sans-serif;
-        }
+        font-family: var(--font-sans-serif-en), var(--font-sans-serif-cn), serif;
+        & code { font-family: var(--font-mono), var(--font-sans-serif-en), var(--font-sans-serif-cn), serif; }
     }
 
     // color theme
@@ -35,13 +33,19 @@ html, body {
         margin-bottom: 0;
     }
     a {
-        text-decoration: none;
+        text-decoration: underline;
         color: var(--link-color);
+        code { padding: 0; }
     }
 
     // vertical rhythm
     strong, code, em, sub, sup, footnote {
         line-height: 1em;
+    }
+
+    article {
+        max-width: 48em;
+        padding: 0 var(--line-height);
     }
 
     h1 { @include h1(); }

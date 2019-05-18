@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/joshua.444b9630.css">
+    <script>window.JOSHUA_CONFIG = {};</script>
+    <script src="/joshua.e62691fe.js"></script>
+
+    <style>small { color: #999; font-size: 12px; white-space: nowrap; }
+        .demo {
+            text-align: center;
+            background: rgba(208, 208, 208, 0.6);
+            border-radius: 5px;
+            padding: 1em 0;
+        }
+        .demo .demo { background: #fafafa; }
+        .demo p { margin: 0; }
+        fieldset {
+            border-radius: 5px;
+        }
+        legend {
+            
+        }</style>
+<script src="/joshua.444b9630.js"></script></head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+
+
+
+
+
+<nav class="nav demo-nav halign">
+    
+    <a data-href="./page-grid.html">Grid</a>
+
+    <span>◈</span>
+    
+    <a class="current" data-href="./page-button.html">Button</a>
+
+    <span>◈</span>
+    
+    <a data-href="./page-input.html">Input</a>
+
+    <span>◈</span>
+    
+    <a data-href="./page-form.html">Form</a>
+
+    <span>◈</span>
+    
+    <a data-href="./page-typo.html">Typo</a>
+
+    <span>◈</span>
+    
+    <a data-href="./page-components.html">Components</a>
+
+    <a>
+        
+<span class="custom-input">
+    <input type="checkbox" id="show-lines" name="">
+    <label for="show-lines">Show Lines </label>
+</span>
+
+        
+    </a>
+    <script>function checkMe(el) {
+  if (el.checked) {
+    document.body.classList.add('lines');
+  } else {
+    document.body.classList.remove('lines');
+  }
+}
+
+var showLineEl = document.querySelector('#show-lines');
+showLineEl.addEventListener('change', function (e) {
+  checkMe(e.target);
+});
+checkMe(showLineEl);</script>
+</nav>
+<style>nav span { color: #ccc; }</style>
+<script>(function () {
+  document.querySelectorAll('a').forEach(function (a) {
+    if (!a.classList.contains('current')) {
+      a.href = a.getAttribute('data-href');
+    }
+  });
+})();</script>
+
+
+
+
+
+<p class="lorem-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+
+<fieldset>
+    <legend>Buttons</legend>
+    <div class="row">
+        <div class="col-1-2">
+            <input class="btn" type="button" value="input:button">
+            <button class="btn">button</button>
+            <a href="#none" class="btn">a.btn</a>
+            <span class="btn">span.btn</span>
+        </div>
+        <div class="col-1-2">
+            <input class="btn success" type="button" value="input:button">
+            <button class="btn info">button</button>
+            <a href="#none" class="btn warning">a.btn</a>
+            <span class="btn error">span.btn</span>
+        </div>
+    </div>
+
+</fieldset>
+
+
+<p class="lorem-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+
+<fieldset>
+    <legend>Sizes</legend>
+    
+        <p>
+        
+            <button class="btn sm">button</button>
+            <button class="btn sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg>
+                button
+            </button>
+            <a href="#none" class="btn sm">a.btn</a>
+        </p>
+    
+        <p>
+        
+            <button class="btn md">button</button>
+            <button class="btn md">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg>
+                button
+            </button>
+            <a href="#none" class="btn md">a.btn</a>
+        </p>
+    
+        <p>
+        
+            <button class="btn lg">button</button>
+            <button class="btn lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg>
+                button
+            </button>
+            <a href="#none" class="btn lg">a.btn</a>
+        </p>
+    
+        <p>
+        
+            <button class="btn xl">button</button>
+            <button class="btn xl">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg>
+                button
+            </button>
+            <a href="#none" class="btn xl">a.btn</a>
+        </p>
+    
+        <p>
+        
+            <button class="btn default">button</button>
+            <button class="btn default">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg>
+                button
+            </button>
+            <a href="#none" class="btn default">a.btn</a>
+        </p>
+    
+</fieldset>
+
+
+<p class="lorem-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+
+<fieldset>
+    <legend>Buttons: .outline</legend>
+    
+        <p>
+        
+            <button class="btn outline sm">button</button>
+            <button class="btn outline sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
+                button
+            </button>
+            <a href="#none" class="btn outline sm">a.btn</a>
+        </p>
+    
+        <p>
+        
+            <button class="btn outline md">button</button>
+            <button class="btn outline md">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
+                button
+            </button>
+            <a href="#none" class="btn outline md">a.btn</a>
+        </p>
+    
+        <p>
+        
+            <button class="btn outline lg">button</button>
+            <button class="btn outline lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
+                button
+            </button>
+            <a href="#none" class="btn outline lg">a.btn</a>
+        </p>
+    
+        <p>
+        
+            <button class="btn outline xl">button</button>
+            <button class="btn outline xl">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
+                button
+            </button>
+            <a href="#none" class="btn outline xl">a.btn</a>
+        </p>
+    
+        <p>
+        
+            <button class="btn outline default">button</button>
+            <button class="btn outline default">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
+                button
+            </button>
+            <a href="#none" class="btn outline default">a.btn</a>
+        </p>
+    
+    <p>
+        <button class="btn success">success</button>
+        <button class="btn info">info</button>
+        <button class="btn info">info</button>
+    </p>
+</fieldset>
+
+
+<p class="lorem-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+
+
+</div>
+
+</body>
+</html>

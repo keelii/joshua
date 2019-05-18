@@ -3,22 +3,35 @@
   "version": "0.0.2",
   "main": "dist/joshua.min.css",
   "scripts": {
+    "test": "./node_modules/.bin/mocha src/js/*.test.js",
     "start": "parcel src/template/page-*.njk -p 8989",
     "sass": "parcel watch src/joshua.scss",
     "grid": "node bin/generate-grid.js > src/sass/_grid-col.scss",
     "clean": "rm -rf dist",
+    "rollup:test": "rollup src/js/compiler.js --file src/js/compiler.cjs.js --format cjs --watch",
+    "rollup": "rollup src/joshua.js --file dist/joshua.js --format iife",
     "build:css": "parcel build src/joshua.scss && cleancss -o dist/joshua.min.css dist/joshua.css",
-    "build:js": "cp src/joshua.js dist/joshua.js && ./node_modules/.bin/uglifyjs src/joshua.js > dist/joshua.min.js",
+    "build:js": "yarn rollup && ./node_modules/.bin/uglifyjs dist/joshua.js > dist/joshua.min.js",
     "build": "yarn clean && yarn build:css && yarn build:js",
     "size": "size-limit"
   },
+  "prettier": {
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true
+  },
   "size-limit": [
-    { "path": "dist/joshua.min.css" },
-    { "path": "dist/joshua.min.js" }
+    {
+      "path": "dist/joshua.min.css"
+    },
+    {
+      "path": "dist/joshua.min.js"
+    }
   ],
   "devDependencies": {
     "clean-css": "^4.2.1",
     "clean-css-cli": "^4.3.0",
+    "mocha": "^6.1.4",
     "nunjucks": "^3.2.0",
     "parcel-bundler": "^1.12.3",
     "parcel-plugin-nunjucks": "^1.1.0",

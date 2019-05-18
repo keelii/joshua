@@ -1,32 +1,170 @@
-{% extends "layout.njk" %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% block body %}
+    <link rel="stylesheet" href="/joshua.444b9630.css">
+    <script>window.JOSHUA_CONFIG = {};</script>
+    <script src="/joshua.e62691fe.js"></script>
 
-{% set active = 'typo' %}
-{% include "nav.njk" %}
+    <style>small { color: #999; font-size: 12px; white-space: nowrap; }
+        .demo {
+            text-align: center;
+            background: rgba(208, 208, 208, 0.6);
+            border-radius: 5px;
+            padding: 1em 0;
+        }
+        .demo .demo { background: #fafafa; }
+        .demo p { margin: 0; }
+        fieldset {
+            border-radius: 5px;
+        }
+        legend {
+            
+        }</style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+
+
+
+
+
+<nav class="nav demo-nav halign">
+    
+    <a data-href="./page-grid.html">Grid</a>
+
+    <span>◈</span>
+    
+    <a data-href="./page-button.html">Button</a>
+
+    <span>◈</span>
+    
+    <a data-href="./page-input.html">Input</a>
+
+    <span>◈</span>
+    
+    <a data-href="./page-form.html">Form</a>
+
+    <span>◈</span>
+    
+    <a class="current" data-href="./page-typo.html">Typo</a>
+
+    <span>◈</span>
+    
+    <a data-href="./page-components.html">Components</a>
+
+    <a>
+        
+<span class="custom-input">
+    <input type="checkbox" id="show-lines" name="">
+    <label for="show-lines">Show Lines </label>
+</span>
+
+        
+    </a>
+    <script>function checkMe(el) {
+  if (el.checked) {
+    document.body.classList.add('lines');
+  } else {
+    document.body.classList.remove('lines');
+  }
+}
+
+var showLineEl = document.querySelector('#show-lines');
+showLineEl.addEventListener('change', function (e) {
+  checkMe(e.target);
+});
+checkMe(showLineEl);</script>
+</nav>
+<style>nav span { color: #ccc; }</style>
+<script>(function () {
+  document.querySelectorAll('a').forEach(function (a) {
+    if (!a.classList.contains('current')) {
+      a.href = a.getAttribute('data-href');
+    }
+  });
+})();</script>
+
 
     <fieldset>
         <legend>En sans-serif</legend>
 
         <div class="typo">
-            {{ heading(1) }}
-            {{ para() }}
-            {{ para() }}
-            {{ heading(2) }}
-            {{ para() }}
-            {{ para() }}
-            {{ heading(3) }}
-            {{ para() }}
-            {{ para() }}
-            {{ heading(4) }}
-            {{ para() }}
-            {{ para() }}
-            {{ heading(5) }}
-            {{ para() }}
-            {{ para() }}
-            {{ heading(6) }}
-            {{ para() }}
-            {{ para() }}
+            
+<h1>Heading 1</h1>
+
+            
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+            
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+            
+<h2>Heading 2</h2>
+
+            
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+            
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+            
+<h3>Heading 3</h3>
+
+            
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+            
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+            
+<h4>Heading 4</h4>
+
+            
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+            
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+            
+<h5>Heading 5</h5>
+
+            
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+            
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+            
+<h6>Heading 6</h6>
+
+            
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+            
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
         </div>
     </fieldset>
 
@@ -82,4 +220,8 @@ Host: localhost</code></pre><h3 id="h3-自定义默认的方案" class="heading"
         </article>
     </div>
 
-{% endblock body %}
+
+</div>
+
+</body>
+</html>

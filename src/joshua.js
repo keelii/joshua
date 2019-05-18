@@ -1,53 +1,59 @@
+import { compile } from './js/compiler.js'
+
 ;(function(config, window, document) {
     let cfg = Object.assign({
-        namespace: null
+        namespace: 'w'
     }, config)
 
     let ns = cfg.namespace
     let w = window
     let d = document
 
+    if (window[ns]) throw new Error(`Global variable [${ns}] is already defined.`)
     if (typeof ns === 'string') w = window[ns] = {}
+
+    /* Lang */
+    // w.isStr = o => typeof o === 'string'
+
+    /* Utils */
+    w.toArr = o => o.length ? o : [o]
+    w.isSel = str => /\s|:|\*|\[|\]|\^|~|\+|>/.test(str)
 
     /* DOM */
     // Query
-    w.get = (id) => d.getElementById(id)
-    w.one = (sel) => d.querySelector(sel)
-    w.all = (sel) => d.querySelectorAll(sel)
-    w.remove = (el) => el.remove()
+    w.id  = (id, ctx) => (ctx || d).getElementById(id)
+    w.one = (sel, ctx) => (ctx || d).querySelector(sel)
+    w.all = (sel, ctx) => (ctx || d).querySelectorAll(sel)
 
-    // Classes
-    w.hasClass = (el, cName) => el.classList && el.classList.contains(cName)
-    w.addClass = (el, cName) => el.classList.add(cName)
-    w.toggleClass = (el, cName) => el.classList.toggle(cName)
-    w.removeClass = (el, cName) => el.classList.remove(cName)
+    // Node
+    w.rm = (el) => el.remove()
+    w.eq = (sel, idx, ctx) => w.all(sel, ctx)[idx]
+
+    // Class
+    w.hsClass = (el, cName) => el.classList && el.classList.contains(cName)
+    w.tgClass = (el, cName, force) => w.toArr(el).forEach(e => e.classList.toggle(cName, force))
+    w.adClass = (el, ...cName) => w.toArr(el).forEach(e => e.classList.add(...cName))
+    w.rpClass = (el, ...args) => w.toArr(el).forEach(e => e.replace(...args))
+    w.rmClass = (el, ...cName) => w.toArr(el).forEach(e => e.classList.remove(...cName))
 
     // Data
-    w.data = (el, key) => el.dataset && el.dataset[key]
-    w.hasData = (el, key) => w.data(el, key) !== undefined
-    w.attr = (el, key) => el.getAttribute(key)
-    w.hasAttr = (el, key) => el.hasAttribute(key)
-    w.setAttr = (el, key, value) => el.setAttribute(key, value)
-    w.removeAttr = (el, key) => el.removeAttribute(key)
-    w.toggleAttr = (...args) => w.hasAttr(...args) ? w.removeAttr(...args) : w.setAttr(...args, true)
+    w.data   = (el, key) => el.dataset && el.dataset[key]
+    w.hsData = (el, key) => w.data(el, key) !== undefined
+
+    // Attribute
+    w.attr   = (el, key) => el.getAttribute(key)
+    w.hsAttr = (el, key) => el.hasAttribute(key)
+    w.stAttr = (el, key, value) => w.toArr(el).forEach(e => e.setAttribute(key, value))
+    w.rmAttr = (el, key) => w.toArr(el).forEach(e => e.removeAttribute(key))
+    w.tgAttr = (el, key) => w.hsAttr(el, key) ? w.rmAttr(el, key) : w.stAttr(el, key, true)
 
     /* Event */
-    w.addEvent = (el, ...args) => el.addEventListener(...args)
-    w.removeEvent = (el, ...args) => el.removeEventListener(...args)
+    w.adEvent = (el, ...args) => el.addEventListener(...args)
+    w.rmEvent = (el, ...args) => el.removeEventListener(...args)
 
-    /* utils */
-    w.delay = function(ms, fn, ...args) {
-        return setTimeout(() => w[fn](this, ...args), ms)
-    }
-
-    w.execute = function(fn, ...args) {
-        if (!w[fn]) return console.error(`[${fn}] is not a function.`)
-
-        if (fn.includes('delay')) {
-            w[fn].call(this, ...args)
-        } else {
-            w[fn](this, ...args)
-        }
+    /* Functions */
+    w.delay = (ms, fn, ...args) => {
+        return setTimeout(() => fn(...args), ms)
     }
 
     // UI Component init
@@ -57,35 +63,113 @@
         el.innerHTML = `<span class="message" data-trigger="close">${content}</span>`
         d.body.appendChild(el)
         setTimeout(() => {
-            addClass(el, 'show')
+            adClass(el, 'show')
         }, 100)
     }
     w.dialog = (el) => {
         setAttr(el, 'open', true)
     }
 
-    function clickAction(e) {
-        let trigger = w.data(e.target, 'trigger')
-        if (trigger !== undefined) {
-            let target = (trigger !== '' && one(trigger)) || e.target.closest('[data-action]')
-            let action = target && w.data(target, 'action')
-            if (!target) {
-                console.warn('Maybe you want add data-action to a DOM node?')
-            }
-            if (action) {
-                action.split(',').forEach(act => {
-                    w.execute.call(target, ...act.split(/\s+/g))
-                })
+    function getSelector(ns, type) {
+        let key = ns ? 'from' : type
+        return `[data-${key}${ns?`="${ns}"`:''}]`
+    }
+
+    function getSameAncestor(node, namespace) {
+        let parent = node.parentNode
+        if (!parent) return null
+
+        while(parent) {
+            console.log(parent, getSelector(namespace, 'action'))
+            let actions = w.hsData(parent, 'action')
+                ? parent
+                : w.one(getSelector(namespace, 'action'), parent)
+            if (actions) {
+                return parent
+            } else {
+                return getSameAncestor(parent)
             }
         }
     }
 
+    function findIndex(list, node) {
+        let index = null
+        list.forEach((n, idx) => {
+            if (n.isEqualNode(node)) index = idx
+        })
+        return index
+    }
+
+    function clickAction(target) {
+        // Event namespace
+        let ns = w.data(target, 'click')
+        // Ancestor element
+        let ancestor = getSameAncestor(target, ns)
+
+        if (ancestor) {
+            let triggers = w.all(getSelector(ns, 'click') , ancestor)
+            let actions  = w.hsData(ancestor, 'action') ? [ancestor] : w.all(getSelector(ns, 'action') , ancestor)
+
+            if (triggers.length) {
+                let INDEX = findIndex(triggers, target) + 1
+                let context = actions[0]
+
+                // External temp function mapping
+                // example:
+                // __rmClass("ul li", "active"); __adClass(w._eq("ul li", 2), "active")
+                let __ = {}
+                // runtime selector or a string detection
+                let get = (str, ...args) => {
+                    let isSel = w.isSel(str)
+                    let arg = isSel ? args : [str, ...args]
+                    return [
+                        isSel ? w.all(str, context) : context,
+                        ...arg
+                    ]
+                }
+                __.eq = (sel, idx) => w.eq(sel, idx, context)
+                __.rm = (el) => el ? w.rm(w.all(el, context)) : w.rm(context)
+                __.rmClass = (sel, ...args) => w.rmClass(...get(sel, ...args))
+                __.adClass = (sel, ...args) => w.adClass(...get(sel, ...args))
+                __.tgClass = (t, force) => w.tgClass(context, t, force)
+                __.rmAttr = (sel, ...args) => w.rmAttr(...get(sel, ...args))
+                __.stAttr = (sel, ...args) => w.stAttr(...get(sel, ...args))
+                __.tgAttr = (t) => w.tgAttr(context, t)
+                __.delay = w.delay
+
+                let actionInput = w.data(actions[0], 'action')
+                let code = compile(actionInput.replace(/INDEX/g, INDEX))
+
+                // for test
+                if (/debug/.test(location.href)) {
+                    w.__ = __
+                    console.log(`INDEX: ${INDEX}\nAction: ${code}\nAncestor: %o\nContext: %o`, ancestor, context)
+                }
+
+                try {
+                    eval(code)
+                } catch(e) {
+                    console.error('Execute code error.', e)
+                    console.log(code)
+                }
+            }
+        } else {
+            console.error('Can`t find action target.')
+        }
+    }
+
+    function handleAction(type, target, fn) {
+        if (w.hsData(target, type)) {
+            fn(target)
+        }
+    }
+
     function domReady() {
-        w.addEvent(document, 'click', clickAction)
+        w.adEvent(document, 'click', ({target}) => handleAction('click', target, clickAction))
     }
 
     // When dom ready, bind default action to triggers.
-    w.addEvent(window, 'DOMContentLoaded', domReady)
+    w.adEvent(window, 'DOMContentLoaded', domReady)
 
 })(window.JOSHUA_CONFIG || {}, window, document)
 

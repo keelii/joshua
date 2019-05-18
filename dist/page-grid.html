@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/joshua.444b9630.css">
+    <script>window.JOSHUA_CONFIG = {};</script>
+    <script src="/joshua.e62691fe.js"></script>
+
+    <style>small { color: #999; font-size: 12px; white-space: nowrap; }
+        .demo {
+            text-align: center;
+            background: rgba(208, 208, 208, 0.6);
+            border-radius: 5px;
+            padding: 1em 0;
+        }
+        .demo .demo { background: #fafafa; }
+        .demo p { margin: 0; }
+        fieldset {
+            border-radius: 5px;
+        }
+        legend {
+            
+        }</style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+
+
+
+
+
+<nav class="nav demo-nav halign">
+    
+    <a class="current" data-href="./page-grid.html">Grid</a>
+
+    <span>◈</span>
+    
+    <a data-href="./page-button.html">Button</a>
+
+    <span>◈</span>
+    
+    <a data-href="./page-input.html">Input</a>
+
+    <span>◈</span>
+    
+    <a data-href="./page-form.html">Form</a>
+
+    <span>◈</span>
+    
+    <a data-href="./page-typo.html">Typo</a>
+
+    <span>◈</span>
+    
+    <a data-href="./page-components.html">Components</a>
+
+    <a>
+        
+<span class="custom-input">
+    <input type="checkbox" id="show-lines" name="">
+    <label for="show-lines">Show Lines </label>
+</span>
+
+        
+    </a>
+    <script>function checkMe(el) {
+  if (el.checked) {
+    document.body.classList.add('lines');
+  } else {
+    document.body.classList.remove('lines');
+  }
+}
+
+var showLineEl = document.querySelector('#show-lines');
+showLineEl.addEventListener('change', function (e) {
+  checkMe(e.target);
+});
+checkMe(showLineEl);</script>
+</nav>
+<style>nav span { color: #ccc; }</style>
+<script>(function () {
+  document.querySelectorAll('a').forEach(function (a) {
+    if (!a.classList.contains('current')) {
+      a.href = a.getAttribute('data-href');
+    }
+  });
+})();</script>
+
+<fieldset>
+    <legend>Breakpoints</legend>
+    <div class="breakpoint-tips nav halign">
+        
+            <span class="span-sm">small(.sm)</span>
+        
+            <span class="span-md">medium(.md)</span>
+        
+            <span class="span-lg">large(.lg)</span>
+        
+            <span class="span-xl">x-large(.xl)</span>
+        
+            <span class="span-default">default()</span>
+        
+    </div>
+    <style>.breakpoint-tips span {
+            display: none;
+            background: #eee;
+            margin: 0 12px;
+        }
+        @media screen and (min-width: 35.5em) {
+            .span-sm { display: inline-block!important; }
+        }
+        @media screen and (min-width: 48em) {
+            .span-md { display: inline-block!important; }
+        }
+        @media screen and (min-width: 64em) {
+            .span-lg { display: inline-block!important; }
+        }
+        @media screen and (min-width: 80em) {
+            .span-xl { display: inline-block!important; }
+        }</style>
+</fieldset>
+
+
+
+<fieldset>
+    <legend>Basics: 5 columns</legend>
+    <div class="row">
+        
+            
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+        
+            
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+        
+            
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+        
+            
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+        
+            
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+        
+        
+    <div class="col-2-5">
+        <div class="demo">
+        
+            2/5
+            <small>.col-2-5</small>
+        
+        </div>
+    </div>
+
+        
+    <div class="col-2-5">
+        <div class="demo">
+        
+            2/5
+            <small>.col-2-5</small>
+        
+        </div>
+    </div>
+
+        
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+
+        
+    <div class="col-3-5">
+        <div class="demo">
+        
+            3/5
+            <small>.col-3-5</small>
+        
+        </div>
+    </div>
+
+        
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+        
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+
+        
+    <div class="col-3-5">
+        <div class="demo">
+        
+            3/5
+            <small>.col-3-5</small>
+        
+        </div>
+    </div>
+
+        
+    <div class="col-2-5">
+        <div class="demo">
+        
+            2/5
+            <small>.col-2-5</small>
+        
+        </div>
+    </div>
+
+
+        
+    <div class="col-4-5">
+        <div class="demo">
+        
+            4/5
+            <small>.col-4-5</small>
+        
+        </div>
+    </div>
+
+        
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Basics: 12 columns</legend>
+    <div class="row">
+        
+    <div class="col-1">
+        <div class="demo">
+        
+            col-1
+            <small>.col-1</small>
+        
+        </div>
+    </div>
+
+        
+            
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+    <div class="col-11-12">
+        <div class="demo">
+        
+            11/12
+            <small>.col-11-12</small>
+        
+        </div>
+    </div>
+
+        
+            
+    <div class="col-2-12">
+        <div class="demo">
+        
+            2/12
+            <small>.col-2-12</small>
+        
+        </div>
+    </div>
+
+            
+    <div class="col-10-12">
+        <div class="demo">
+        
+            10/12
+            <small>.col-10-12</small>
+        
+        </div>
+    </div>
+
+        
+            
+    <div class="col-3-12">
+        <div class="demo">
+        
+            3/12
+            <small>.col-3-12</small>
+        
+        </div>
+    </div>
+
+            
+    <div class="col-9-12">
+        <div class="demo">
+        
+            9/12
+            <small>.col-9-12</small>
+        
+        </div>
+    </div>
+
+        
+            
+    <div class="col-4-12">
+        <div class="demo">
+        
+            4/12
+            <small>.col-4-12</small>
+        
+        </div>
+    </div>
+
+            
+    <div class="col-8-12">
+        <div class="demo">
+        
+            8/12
+            <small>.col-8-12</small>
+        
+        </div>
+    </div>
+
+        
+            
+    <div class="col-5-12">
+        <div class="demo">
+        
+            5/12
+            <small>.col-5-12</small>
+        
+        </div>
+    </div>
+
+            
+    <div class="col-7-12">
+        <div class="demo">
+        
+            7/12
+            <small>.col-7-12</small>
+        
+        </div>
+    </div>
+
+        
+            
+    <div class="col-6-12">
+        <div class="demo">
+        
+            6/12
+            <small>.col-6-12</small>
+        
+        </div>
+    </div>
+
+            
+    <div class="col-6-12">
+        <div class="demo">
+        
+            6/12
+            <small>.col-6-12</small>
+        
+        </div>
+    </div>
+
+        
+            
+    <div class="col-7-12">
+        <div class="demo">
+        
+            7/12
+            <small>.col-7-12</small>
+        
+        </div>
+    </div>
+
+            
+    <div class="col-5-12">
+        <div class="demo">
+        
+            5/12
+            <small>.col-5-12</small>
+        
+        </div>
+    </div>
+
+        
+            
+    <div class="col-8-12">
+        <div class="demo">
+        
+            8/12
+            <small>.col-8-12</small>
+        
+        </div>
+    </div>
+
+            
+    <div class="col-4-12">
+        <div class="demo">
+        
+            4/12
+            <small>.col-4-12</small>
+        
+        </div>
+    </div>
+
+        
+            
+    <div class="col-9-12">
+        <div class="demo">
+        
+            9/12
+            <small>.col-9-12</small>
+        
+        </div>
+    </div>
+
+            
+    <div class="col-3-12">
+        <div class="demo">
+        
+            3/12
+            <small>.col-3-12</small>
+        
+        </div>
+    </div>
+
+        
+            
+    <div class="col-10-12">
+        <div class="demo">
+        
+            10/12
+            <small>.col-10-12</small>
+        
+        </div>
+    </div>
+
+            
+    <div class="col-2-12">
+        <div class="demo">
+        
+            2/12
+            <small>.col-2-12</small>
+        
+        </div>
+    </div>
+
+        
+            
+    <div class="col-11-12">
+        <div class="demo">
+        
+            11/12
+            <small>.col-11-12</small>
+        
+        </div>
+    </div>
+
+            
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+        
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Nested grids</legend>
+    <div class="row">
+        <div class="col-1-2">
+            <div class="demo">
+                left
+                <div class="row">
+                    
+    <div class="col-1-3">
+        <div class="demo">
+        
+            1/3
+            <small>.col-1-3</small>
+        
+        </div>
+    </div>
+
+                    
+    <div class="col-1-3">
+        <div class="demo">
+        
+            1/3
+            <small>.col-1-3</small>
+        
+        </div>
+    </div>
+
+                    
+    <div class="col-1-3">
+        <div class="demo">
+        
+            1/3
+            <small>.col-1-3</small>
+        
+        </div>
+    </div>
+
+                    
+    <div class="col-1-2">
+        <div class="demo">
+        
+            1/2
+            <small>.col-1-2</small>
+        
+        </div>
+    </div>
+
+                    
+    <div class="col-1-2">
+        <div class="demo">
+        
+            1/2
+            <small>.col-1-2</small>
+        
+        </div>
+    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-1-2">
+            <div class="demo">
+                right
+                <div class="row">
+                    
+    <div class="col-1-3">
+        <div class="demo">
+        
+            1/3
+            <small>.col-1-3</small>
+        
+        </div>
+    </div>
+
+                    
+    <div class="col-1-3">
+        <div class="demo">
+        
+            1/3
+            <small>.col-1-3</small>
+        
+        </div>
+    </div>
+
+                    
+    <div class="col-1-3">
+        <div class="demo">
+        
+            1/3
+            <small>.col-1-3</small>
+        
+        </div>
+    </div>
+
+                    
+    <div class="col-1-2">
+        <div class="demo">
+        
+            1/2
+            <small>.col-1-2</small>
+        
+        </div>
+    </div>
+
+                    
+    <div class="col-1-2">
+        <div class="demo">
+        
+            1/2
+            <small>.col-1-2</small>
+        
+        </div>
+    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Equal columns:</legend>
+    <div class="row">
+        
+            
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+        
+            
+            
+                
+    <div class="col-1-6">
+        <div class="demo">
+        
+            1/6
+            <small>.col-1-6</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-6">
+        <div class="demo">
+        
+            1/6
+            <small>.col-1-6</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-6">
+        <div class="demo">
+        
+            1/6
+            <small>.col-1-6</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-6">
+        <div class="demo">
+        
+            1/6
+            <small>.col-1-6</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-6">
+        <div class="demo">
+        
+            1/6
+            <small>.col-1-6</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-6">
+        <div class="demo">
+        
+            1/6
+            <small>.col-1-6</small>
+        
+        </div>
+    </div>
+
+            
+        
+            
+            
+                
+    <div class="col-1-4">
+        <div class="demo">
+        
+            1/4
+            <small>.col-1-4</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-4">
+        <div class="demo">
+        
+            1/4
+            <small>.col-1-4</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-4">
+        <div class="demo">
+        
+            1/4
+            <small>.col-1-4</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-4">
+        <div class="demo">
+        
+            1/4
+            <small>.col-1-4</small>
+        
+        </div>
+    </div>
+
+            
+        
+            
+            
+                
+    <div class="col-1-3">
+        <div class="demo">
+        
+            1/3
+            <small>.col-1-3</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-3">
+        <div class="demo">
+        
+            1/3
+            <small>.col-1-3</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-3">
+        <div class="demo">
+        
+            1/3
+            <small>.col-1-3</small>
+        
+        </div>
+    </div>
+
+            
+        
+            
+            
+                
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+            
+        
+            
+            
+                
+    <div class="col-1-2">
+        <div class="demo">
+        
+            1/2
+            <small>.col-1-2</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-2">
+        <div class="demo">
+        
+            1/2
+            <small>.col-1-2</small>
+        
+        </div>
+    </div>
+
+            
+        
+            
+            
+                
+    <div class="col-1-1">
+        <div class="demo">
+        
+            1/1
+            <small>.col-1-1</small>
+        
+        </div>
+    </div>
+
+            
+        
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>No Gutters: .no-gutter</legend>
+    <div class="row no-gutter">
+        
+            
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-12">
+        <div class="demo">
+        
+            1/12
+            <small>.col-1-12</small>
+        
+        </div>
+    </div>
+
+            
+        
+            
+            
+                
+    <div class="col-1-6">
+        <div class="demo">
+        
+            1/6
+            <small>.col-1-6</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-6">
+        <div class="demo">
+        
+            1/6
+            <small>.col-1-6</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-6">
+        <div class="demo">
+        
+            1/6
+            <small>.col-1-6</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-6">
+        <div class="demo">
+        
+            1/6
+            <small>.col-1-6</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-6">
+        <div class="demo">
+        
+            1/6
+            <small>.col-1-6</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-6">
+        <div class="demo">
+        
+            1/6
+            <small>.col-1-6</small>
+        
+        </div>
+    </div>
+
+            
+        
+            
+            
+                
+    <div class="col-1-4">
+        <div class="demo">
+        
+            1/4
+            <small>.col-1-4</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-4">
+        <div class="demo">
+        
+            1/4
+            <small>.col-1-4</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-4">
+        <div class="demo">
+        
+            1/4
+            <small>.col-1-4</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-4">
+        <div class="demo">
+        
+            1/4
+            <small>.col-1-4</small>
+        
+        </div>
+    </div>
+
+            
+        
+            
+            
+                
+    <div class="col-1-3">
+        <div class="demo">
+        
+            1/3
+            <small>.col-1-3</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-3">
+        <div class="demo">
+        
+            1/3
+            <small>.col-1-3</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-3">
+        <div class="demo">
+        
+            1/3
+            <small>.col-1-3</small>
+        
+        </div>
+    </div>
+
+            
+        
+            
+            
+                
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-5">
+        <div class="demo">
+        
+            1/5
+            <small>.col-1-5</small>
+        
+        </div>
+    </div>
+
+            
+        
+            
+            
+                
+    <div class="col-1-2">
+        <div class="demo">
+        
+            1/2
+            <small>.col-1-2</small>
+        
+        </div>
+    </div>
+
+            
+                
+    <div class="col-1-2">
+        <div class="demo">
+        
+            1/2
+            <small>.col-1-2</small>
+        
+        </div>
+    </div>
+
+            
+        
+            
+            
+                
+    <div class="col-1-1">
+        <div class="demo">
+        
+            1/1
+            <small>.col-1-1</small>
+        
+        </div>
+    </div>
+
+            
+        
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Responsive columns:</legend>
+    <div class="row">
+        
+            <div class="col-sm-1 col-md-1-2 col-lg-1-3 col-xl-1-6 col-1-3">
+                <div class="demo demo1">
+                    <p><span>default</span> <small>.col-1-3</small></p>
+                    <p><span>small</span> <small>.col-sm-1</small></p>
+                    <p><span>medium</span> <small>.col-md-1-2</small></p>
+                    <p><span>large</span> <small>.col-lg-1-3</small></p>
+                    <p><span>x-large</span> <small>.col-xl-1-6</small></p>
+                </div>
+            </div>
+        
+            <div class="col-sm-1 col-md-1-2 col-lg-1-3 col-xl-1-6 col-1-3">
+                <div class="demo demo1">
+                    <p><span>default</span> <small>.col-1-3</small></p>
+                    <p><span>small</span> <small>.col-sm-1</small></p>
+                    <p><span>medium</span> <small>.col-md-1-2</small></p>
+                    <p><span>large</span> <small>.col-lg-1-3</small></p>
+                    <p><span>x-large</span> <small>.col-xl-1-6</small></p>
+                </div>
+            </div>
+        
+            <div class="col-sm-1 col-md-1-2 col-lg-1-3 col-xl-1-6 col-1-3">
+                <div class="demo demo1">
+                    <p><span>default</span> <small>.col-1-3</small></p>
+                    <p><span>small</span> <small>.col-sm-1</small></p>
+                    <p><span>medium</span> <small>.col-md-1-2</small></p>
+                    <p><span>large</span> <small>.col-lg-1-3</small></p>
+                    <p><span>x-large</span> <small>.col-xl-1-6</small></p>
+                </div>
+            </div>
+        
+            <div class="col-sm-1 col-md-1-2 col-lg-1-3 col-xl-1-6 col-1-3">
+                <div class="demo demo1">
+                    <p><span>default</span> <small>.col-1-3</small></p>
+                    <p><span>small</span> <small>.col-sm-1</small></p>
+                    <p><span>medium</span> <small>.col-md-1-2</small></p>
+                    <p><span>large</span> <small>.col-lg-1-3</small></p>
+                    <p><span>x-large</span> <small>.col-xl-1-6</small></p>
+                </div>
+            </div>
+        
+            <div class="col-sm-1 col-md-1-2 col-lg-1-3 col-xl-1-6 col-1-3">
+                <div class="demo demo1">
+                    <p><span>default</span> <small>.col-1-3</small></p>
+                    <p><span>small</span> <small>.col-sm-1</small></p>
+                    <p><span>medium</span> <small>.col-md-1-2</small></p>
+                    <p><span>large</span> <small>.col-lg-1-3</small></p>
+                    <p><span>x-large</span> <small>.col-xl-1-6</small></p>
+                </div>
+            </div>
+        
+            <div class="col-sm-1 col-md-1-2 col-lg-1-3 col-xl-1-6 col-1-3">
+                <div class="demo demo1">
+                    <p><span>default</span> <small>.col-1-3</small></p>
+                    <p><span>small</span> <small>.col-sm-1</small></p>
+                    <p><span>medium</span> <small>.col-md-1-2</small></p>
+                    <p><span>large</span> <small>.col-lg-1-3</small></p>
+                    <p><span>x-large</span> <small>.col-xl-1-6</small></p>
+                </div>
+            </div>
+        
+    </div>
+
+    <style>.demo1 p {
+        text-align: left;
+    }
+    .demo1 p * {
+        display: inline-block;
+    }
+    .demo1 p span {
+        width: 4em;
+        text-align: right;
+        margin-left: 1em;
+        text-decoration: underline;
+    }
+    @media screen and (min-width: 35.5em) {
+        .demo1 p span {
+            margin-left: 13em;
+        }
+    }
+    @media screen and (min-width: 48em) {
+        .demo1 p span {
+            margin-left: 7em;
+        }
+    }
+    @media screen and (min-width: 64em) {
+        .demo1 p span {
+            margin-left: 8em;
+        }
+    }
+    @media screen and (min-width: 80em) {
+        .demo1 p span {
+            margin-left: 1em;
+        }
+    }</style>
+</fieldset>
+
+
+</div>
+
+</body>
+</html>

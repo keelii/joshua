@@ -105,7 +105,7 @@
 .smaller { @include smaller(); }
 
 
-ins[data-trigger] {
+ins.close {
     cursor: pointer;
     position: absolute;
     right: var(--line-height-half);

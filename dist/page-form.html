@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/joshua.444b9630.css">
+    <script>window.JOSHUA_CONFIG = {};</script>
+    <script src="/joshua.e62691fe.js"></script>
+
+    <style>small { color: #999; font-size: 12px; white-space: nowrap; }
+        .demo {
+            text-align: center;
+            background: rgba(208, 208, 208, 0.6);
+            border-radius: 5px;
+            padding: 1em 0;
+        }
+        .demo .demo { background: #fafafa; }
+        .demo p { margin: 0; }
+        fieldset {
+            border-radius: 5px;
+        }
+        legend {
+            
+        }</style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+
+
+
+
+
+<nav class="nav demo-nav halign">
+    
+    <a data-href="./page-grid.html">Grid</a>
+
+    <span>◈</span>
+    
+    <a data-href="./page-button.html">Button</a>
+
+    <span>◈</span>
+    
+    <a data-href="./page-input.html">Input</a>
+
+    <span>◈</span>
+    
+    <a class="current" data-href="./page-form.html">Form</a>
+
+    <span>◈</span>
+    
+    <a data-href="./page-typo.html">Typo</a>
+
+    <span>◈</span>
+    
+    <a data-href="./page-components.html">Components</a>
+
+    <a>
+        
+<span class="custom-input">
+    <input type="checkbox" id="show-lines" name="">
+    <label for="show-lines">Show Lines </label>
+</span>
+
+        
+    </a>
+    <script>function checkMe(el) {
+  if (el.checked) {
+    document.body.classList.add('lines');
+  } else {
+    document.body.classList.remove('lines');
+  }
+}
+
+var showLineEl = document.querySelector('#show-lines');
+showLineEl.addEventListener('change', function (e) {
+  checkMe(e.target);
+});
+checkMe(showLineEl);</script>
+</nav>
+<style>nav span { color: #ccc; }</style>
+<script>(function () {
+  document.querySelectorAll('a').forEach(function (a) {
+    if (!a.classList.contains('current')) {
+      a.href = a.getAttribute('data-href');
+    }
+  });
+})();</script>
+
+
+
+<fieldset>
+    <legend>Basics</legend>
+    <div class="form">
+        <p>
+            
+    <label for="username1">Username1</label>
+    <input class="input" id="username1" type="text" placeholder="type your Username1">
+    <span class="form-tip">check your Username1 correction.</span>
+
+        </p>
+        <p>
+            
+    <label for="password1">Password1</label>
+    <input class="input" id="password1" type="password" placeholder="type your Password1">
+    <span class="form-tip">check your Password1 correction.</span>
+
+        </p>
+        <p>
+            
+<label for="gender1">Gender1</label>
+<select class="select" id="gender1">
+    
+        <option value="1">Female</option>
+    
+        <option value="2">Male</option>
+    
+</select>
+
+        </p>
+        <p>
+            <label for="check">Select</label>
+            
+<span class="custom-input">
+    <input type="checkbox" id="remember-me" name="">
+    <label for="remember-me">Remember Me </label>
+</span>
+
+        </p>
+        <p>
+            <label for="check">Gender</label>
+            
+<span class="custom-input">
+    <input type="radio" id="male" name="gender">
+    <label for="male">Male </label>
+</span>
+
+            
+<span class="custom-input">
+    <input type="radio" id="female" name="gender">
+    <label for="female">Female </label>
+</span>
+
+        </p>
+        <p>
+            
+    <label for="some-other-long-longger-field-to-input">Some other long longger field to input</label>
+    <input class="input" id="some-other-long-longger-field-to-input" type="text" placeholder="type your Some other long longger field to input">
+    <span class="form-tip">check your Some other long longger field to input correction.</span>
+
+        </p>
+        <p>
+            
+    <label for="description">Description</label>
+    <textarea class="textarea" id="description" placeholder="type your Description"></textarea>
+
+        </p>
+        <p>
+            <label></label>
+            
+<input class="btn " type="Submit" value="Submit">
+
+            
+<input class="btn outline" type="reset" value="Reset">
+
+        </p>
+    </div>        
+    
+<p class="lorem-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+</fieldset>
+
+<fieldset>
+    <legend>Stacked</legend>
+    <div class="form stacked">
+        <p>
+            
+    <label for="username2">Username2</label>
+    <input class="input" id="username2" type="text" placeholder="type your Username2">
+    <span class="form-tip">check your Username2 correction.</span>
+
+        </p>
+        <p>
+            
+    <label for="password2">Password2</label>
+    <input class="input" id="password2" type="password" placeholder="type your Password2">
+    <span class="form-tip">check your Password2 correction.</span>
+
+        </p>
+        <p>
+            
+<label for="gender2">Gender2</label>
+<select class="select" id="gender2">
+    
+        <option value="1">Female</option>
+    
+        <option value="2">Male</option>
+    
+</select>
+
+        </p>
+        <p>
+            
+<button class="btn " type="button">Save</button>
+
+            
+<button class="btn outline" type="reset">Reset</button>
+
+        </p>
+    </div>
+    
+<p class="lorem-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+</fieldset>
+
+<fieldset>
+    <legend>Full width</legend>
+    <div class="form full-width stacked">
+        <p>
+            
+    <label for="username3">Username3</label>
+    <input class="input" id="username3" type="text" placeholder="type your Username3">
+    <span class="form-tip">check your Username3 correction.</span>
+
+        </p>
+        <p>
+            
+    <label for="password3">Password3</label>
+    <input class="input" id="password3" type="password" placeholder="type your Password3">
+    <span class="form-tip">check your Password3 correction.</span>
+
+        </p>
+        <p>
+            
+<label for="gender3">Gender3</label>
+<select class="select" id="gender3">
+    
+        <option value="1">Female</option>
+    
+        <option value="2">Male</option>
+    
+</select>
+
+        </p>
+        <p>
+            
+<button class="btn " type="button">Save</button>
+
+            
+<button class="btn outline" type="reset">Reset</button>
+
+        </p>
+        <p>
+            
+<button class="btn full-width" type="button">Save</button>
+
+            
+<button class="btn outline full-width" type="reset">Reset</button>
+
+        </p>
+    </div>
+    
+<p class="lorem-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum suscipit cum tenetur culpa reprehenderit alias fugit, perspiciatis laboriosam sapiente eligendi iure illo quod unde voluptas itaque assumenda commodi debitis voluptate.</p>
+
+</fieldset>
+
+
+
+</div>
+
+</body>
+</html>

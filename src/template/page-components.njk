@@ -7,15 +7,15 @@
 
 
 {% macro message(content, type='', close=false, more=true) %}
-    <span class="message {{ type }}" {% if close %}data-action="remove"{% endif %}>{{ content }}
+    <span class="message {{ type }}" {% if close %}data-action="rm()"{% endif %}>{{ content }}
     {% if more %} <a href="#none">More</a> {% endif %}
-    {% if close %}<ins data-trigger></ins>{% endif %}
+    {% if close %}<ins class="close" data-click></ins>{% endif %}
     </span>
 {% endmacro %}
 
 {% macro toast(content, pos) %}
-    <div class="toast {{ pos }} show" data-action="removeClass show,delay 200 remove">
-        <span class="message" data-trigger>{{ content }}</span>
+    <div class="toast {{ pos }} show" data-action="rmClass(show)delay(200,fn:rm())">
+        <span class="message" data-click>{{ content }}</span>
     </div>
 {% endmacro %}
 
@@ -128,45 +128,45 @@
 
     </div>
     <div style="position: relative; min-height: 20em;">
-        <dialog open data-action="remove">
+        <dialog open data-action="rm()">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet dolorum, eaque earum facere, illum inventore labore libero natus numquam optio perferendis quae quidem recusandae similique, tempore unde vitae voluptates.</p>
             <p>
                 <button class="btn">OK</button>
                 <button class="btn">Cancel</button>
             </p>
-            <ins data-trigger></ins>
+            <ins class="close" data-click></ins>
         </dialog>
     </div>
     <div style="position: relative; min-height: 20em;">
-        <dialog open data-action="remove">
+        <dialog open data-action="rm()">
             <header>Heading</header>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet dolorum, eaque earum facere, illum inventore labore libero natus numquam optio perferendis quae quidem recusandae similique, tempore unde vitae voluptates.</p>
             <p>
                 <button class="btn outline">OK</button>
-                <button class="btn outline">Cancel</button>
+                <button class="btn outline" data-click>Cancel</button>
             </p>
-            <ins data-trigger>×</ins>
+            <ins class="close" data-click>×</ins>
         </dialog>
     </div>
     <div style="position: relative; min-height: 20em;">
-        <dialog open class="success" data-action="remove">
+        <dialog open class="success" data-action="tgAttr(open)">
             <header>Heading</header>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet dolorum, eaque earum facere, illum inventore labore libero natus numquam optio perferendis quae quidem recusandae similique, tempore unde vitae voluptates.</p>
             <p class="tac">
                 <button class="btn outline">OK</button>
                 <button class="btn">Cancel</button>
-                <button class="btn outline" data-trigger>Cancel</button>
+                <button class="btn outline" data-click>Cancel</button>
                 <input class="btn" type="button" value="input">
             </p>
             <footer>footer text</footer>
         </dialog>
     </div>
     <div style="position: relative; min-height: 20em;">
-        <button class="btn" data-trigger="#dialog-click">click to toggle dialog</button>
-        <dialog id="dialog-click" data-action="toggleAttr open">
+        <button class="btn" data-click>click to toggle dialog</button>
+        <dialog id="dialog-click" data-action="tgAttr(open)">
             <header class="tac">
                 <button class="btn outline">OK</button>
-                <button class="btn" data-trigger>Cancel</button>
+                <button class="btn" data-click>Cancel</button>
             </header>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet dolorum, eaque earum facere, illum inventore labore libero natus numquam optio perferendis quae quidem recusandae similique, tempore unde vitae voluptates.</p>
             <p class="tac">
@@ -175,10 +175,37 @@
                 <button class="btn outline" data-trigger>Cancel</button>
                 <input class="btn" type="button" value="input">
             </p>
-            <ins data-trigger></ins>
+            <ins class="close" data-click></ins>
         </dialog>
     </div>
 </fieldset>
 
+    <fieldset>
+        <legend>demo</legend>
+
+        <style>
+            #demo-click li.active {
+                border-color: #fc0;
+            }
+            #demo-click button.active {
+                box-shadow-color : #fc0!important;
+            }
+            #demo-click li {
+                display: inline-block;
+                border: 10px solid #33aaaa;
+            }
+        </style>
+        <div id="demo-click"
+             data-action="rmClass('ul li', active)adClass('ul li:nth-child(INDEX)', active)">
+            <ul>
+                <li class="active">img1.jpg</li>
+                <li>img2.jpg</li>
+                <li>img3.jpg</li>
+            </ul>
+            <button class="btn small outline" data-click>1</button>
+            <button class="btn small outline" data-click>2</button>
+            <button class="btn small outline" data-click>3</button>
+        </div>
+    </fieldset>
 
 {% endblock body %}
