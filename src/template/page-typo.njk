@@ -4,11 +4,16 @@
 
 {% set active = 'typo' %}
 {% include "nav.njk" %}
-
     <fieldset>
         <legend>En sans-serif</legend>
 
         <div class="typo">
+            <div class="row">
+                <div class="col">
+
+                </div>
+            </div>
+
             {{ heading(1) }}
             {{ para() }}
             {{ para() }}
@@ -31,10 +36,15 @@
     </fieldset>
 
 
+
     <fieldset>
         <legend>中文 serif</legend>
 
-        <div class="typo serif">
+    </fieldset>
+
+
+    <div class="typo serif">
+        <article>
             <h1>HTTPie 官方文档中文翻译版</h1>
             <blockquote>
                 <p>测试文字</p>
@@ -67,9 +77,15 @@ GET /bar HTTP/1.1
 Host: localhost:3000</code></pre><pre><code>http :
 
 GET / HTTP/1.1
-Host: localhost</code></pre><h3 id="h3-自定义默认的方案" class="heading">自定义默认的方案</h3><p>你可以使用 <code>--default-scheme &lt;URL_SCHEME&gt;</code> 参数来指定非 HTTP 的其它协义</p><pre><code>alias https='http --default-scheme=https'</code></pre><h2 id="h2-请求项" class="heading">请求项</h2><p>不同的请求项类型提供一种便捷的方法来指定 HTTP 头、简单的 JSON 、表单数据、文件、URL 参数</p><p>URL 参数后面紧随的是 <code>键/值</code> 对参数都会被拼装成请求发送。不同类型的 <code>键/值</code> 对分 割符号分别是：<code>:</code>, <code>=</code>, <code>:=</code>, <code>@</code>, <code>=@</code>, <code>:=@</code>。用 <code>@</code> 分割的参数表示文件路径</p><table><tbody><tr><th>项类型(item type)</th><th>描述(Description)</th></tr><tr><td>HTTP 头参数<br><code>Name:Value</code></td><td>任意的 HTTP 头，比如：<code>X-API-Token:123</code></td></tr><tr><td>URL 参数<br><code>name==value</code></td><td>通过分割符 <code>==</code> 表示一个查询字符串的 <code>键/值</code> 对</td></tr><tr><td>数据域<br><code>field=value</code>,<br><code>field=@file.txt</code></td><td>请求一个默认会被序列化成 JSON 的数据域，或者表单类型 form-encoded<code>(--form, -f)</code></td></tr><tr><td>纯 JSON 域<br><code>field:=json</code>,<br><code>field:=@file.json</code></td><td>当需要指定一个或者多数域参数类型 <code>boolean</code>, <code>number</code> .. 时非常有用， 比如：meals:='["ham","spam"]' or pies:=[1,2,3] (注意引号).</td></tr><tr><td>Form 表单文件域</td><td>仅当传入参数 <code>--form, -f</code> 时有效，比如 <code>screenshot@~/Pictures/img.png</code> 文件内容将会被序列化成 <code>multipart/form-data</code> 发送</td></tr></tbody></table><p>数据域不是唯一的指定请求数据的方式，<a data-href="#%E9%87%8D%E5%AE%9A%E5%90%91%E8%BE%93%E5%85%A5">重定向输入</a>也可以</p><p>…</p>
-        </div>
-    </fieldset>
+Host: localhost</code></pre><h3 id="h3-自定义默认的方案" class="heading">自定义默认的方案</h3><p>你可以使用 <code>--default-scheme &lt;URL_SCHEME&gt;</code> 参数来指定非 HTTP 的其它协义</p><pre><code>alias https='http --default-scheme=https'</code></pre><h2 id="h2-请求项" class="heading">请求项</h2><p>不同的请求项类型提供一种便捷的方法来指定 HTTP 头、简单的 JSON 、表单数据、文件、URL 参数</p><p>URL 参数后面紧随的是 <code>键/值</code> 对参数都会被拼装成请求发送。不同类型的 <code>键/值</code> 对分 割符号分别是：<code>:</code>, <code>=</code>, <code>:=</code>, <code>@</code>, <code>=@</code>, <code>:=@</code>。用 <code>@</code> 分割的参数表示文件路径</p>
+
+            <div class="table-responsive">
+            <table><tbody><tr><th>项类型(item type)</th><th>描述(Description)</th></tr><tr><td>HTTP 头参数<br><code>Name:Value</code></td><td>任意的 HTTP 头，比如：<code>X-API-Token:123</code></td></tr><tr><td>URL 参数<br><code>name==value</code></td><td>通过分割符 <code>==</code> 表示一个查询字符串的 <code>键/值</code> 对</td></tr><tr><td>数据域<br><code>field=value</code>,<br><code>field=@file.txt</code></td><td>请求一个默认会被序列化成 JSON 的数据域，或者表单类型 form-encoded<code>(--form, -f)</code></td></tr><tr><td>纯 JSON 域<br><code>field:=json</code>,<br><code>field:=@file.json</code></td><td>当需要指定一个或者多数域参数类型 <code>boolean</code>, <code>number</code> .. 时非常有用， 比如：meals:='["ham","spam"]' or pies:=[1,2,3] (注意引号).</td></tr><tr><td>Form 表单文件域</td><td>仅当传入参数 <code>--form, -f</code> 时有效，比如 <code>screenshot@~/Pictures/img.png</code> 文件内容将会被序列化成 <code>multipart/form-data</code> 发送</td></tr></tbody></table>
+            </div>
+            <p>数据域不是唯一的指定请求数据的方式，<a data-href="#%E9%87%8D%E5%AE%9A%E5%90%91%E8%BE%93%E5%85%A5">重定向输入</a>也可以</p><p>…</p>
+
+        </article>
+    </div>
 
     <div class="typo center">
         <article>

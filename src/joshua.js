@@ -3,7 +3,8 @@ import { compile } from './js/compiler.js'
 ;(function(config, window, document) {
     let cfg = Object.assign({
         namespace: 'w',
-        init: true
+        init: true,
+        toastAutoCloseTimeout: 5000
     }, config)
 
     let ns = cfg.namespace
@@ -58,18 +59,22 @@ import { compile } from './js/compiler.js'
     }
 
     // UI Component init
-    w.toast = (content, pos, autoClose=true) => {
+    w.toast = (content, type, pos, autoClose=true) => {
         let el = d.createElement('div')
         el.className = `toast ${pos||'center'}`
         el.setAttribute('data-action', 'rmClass("show")delay(100,fn:rm())')
-        el.innerHTML = `<span class="message" data-click>${content}</span>`
+        el.innerHTML = `<span class="message ${type||''}" data-click>${content}</span>`
         d.body.appendChild(el)
 
+        let timer = null
         let open = () => w.delay(100, () => w.adClass(el, 'show'))
-        let close = () => w.delay(3000, () => {
-            w.rmClass(el, 'show')
-            w.delay(100, () => w.rm(el))
-        })
+        let close = () => {
+            timer = w.delay(cfg.toastAutoCloseTimeout, () => {
+                w.rmClass(el, 'show')
+                w.delay(100, () => w.rm(el))
+            })
+        }
+        el.onmouseenter = () => clearTimeout(timer)
         open()
         if (autoClose) close()
         return { open, close }
@@ -87,7 +92,6 @@ import { compile } from './js/compiler.js'
         if (!parent) return null
 
         while(parent) {
-            console.log(parent, getSelector(namespace, 'action'))
             let actions = w.hsData(parent, 'action')
                 ? parent
                 : w.one(getSelector(namespace, 'action'), parent)

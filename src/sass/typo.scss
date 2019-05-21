@@ -44,8 +44,9 @@ html, body {
     }
 
     article {
-        max-width: 48em;
-        padding: 0 var(--line-height);
+        max-width: 48rem;
+        width: 100%;
+        //padding: 0 var(--line-height);
     }
 
     h1 { @include h1(); }
@@ -90,11 +91,11 @@ html, body {
 
     $table-row-color: rgba(230, 230, 230, 0.2);
     $table-th-color: rgba(230, 230, 230, 0.4);
+
     table {
+        width: 100%;
+        overflow: auto;
         border-collapse: collapse;
-        //font-size: 0.875em; /* = 14px */
-        //line-height: 1.7143;
-        //margin: 1.7143em 0 1.7143em 0;
 
         tr:nth-child(odd) {
             background: $table-row-color;
@@ -116,24 +117,25 @@ html, body {
         }
     }
 
-    pre, code {
-        white-space: pre;
-    }
     pre {
+        width: 100%;
+
         background-color: var(--code-mark-bg);
         padding: var(--line-height);
-        overflow-x: auto;
+        overflow: auto;
+
         code {
             background: none;
             padding: 0;
+            //word-break: normal;
         }
     }
     code {
         border-radius: 2px;
         padding: 0 0.2em;
-        white-space: pre-wrap;
         background-color: var(--code-mark-bg);
         font-family: var(--font-mono);
+        //word-break: break-word;
     }
     abbr[title] {
         border-bottom: none;

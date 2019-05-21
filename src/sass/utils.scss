@@ -104,6 +104,12 @@
 .small { @include small(); }
 .smaller { @include smaller(); }
 
+// table wrapper
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
 
 ins.close {
     cursor: pointer;
