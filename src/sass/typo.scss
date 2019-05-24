@@ -1,4 +1,5 @@
-$FONT-CDN: "https://fonts.googleapis.cnpmjs.org/css";
+//$FONT-CDN: "https://fonts.googleapis.cnpmjs.org/css";
+$FONT-CDN: "https://fonts.loli.net/css";
 
 @import url("#{$FONT-CDN}?family=PT+Serif:400|PT+Serif:400&font-display=swap");
 @import url("#{$FONT-CDN}?family=Source+Serif+Pro:400,600,700&font-display=swap");
@@ -13,7 +14,7 @@ html, body {
         & code { font-family: var(--font-mono), var(--font-serif-en), var(--font-serif-cn), serif }
     }
     &.sans-serif {
-        font-family: var(--font-sans-serif-en), var(--font-sans-serif-cn), serif;
+        font-family: var(--font-sans-serif-en), var(--font-sans-serif-cn), sans-serif;
         & code { font-family: var(--font-mono), var(--font-sans-serif-en), var(--font-sans-serif-cn), serif; }
     }
 
