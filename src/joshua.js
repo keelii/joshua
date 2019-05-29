@@ -22,6 +22,10 @@ import { compile } from './js/compiler.js'
     w.isSel = str => /\s|:|\*|\[|\]|\^|~|\+|>/.test(str)
 
     /* DOM */
+    w.bd = d.body
+    w.doc = d
+    w.win = window
+
     // Query
     w.id  = (id, ctx) => (ctx || d).getElementById(id)
     w.one = (sel, ctx) => (ctx || d).querySelector(sel)
@@ -30,6 +34,17 @@ import { compile } from './js/compiler.js'
     // Node
     w.rm = (el) => el.remove()
     w.eq = (sel, idx, ctx) => w.all(sel, ctx)[idx]
+    w.parent = (node, cls) => {
+        if (!node || !node.classList) return null
+
+        if (w.hsClass(node, cls)) {
+            return node
+        } else {
+            while(node.parentNode) {
+                return w.parent(node.parentNode, cls)
+            }
+        }
+    }
 
     // Class
     w.hsClass = (el, cName) => el.classList && el.classList.contains(cName)
@@ -41,6 +56,13 @@ import { compile } from './js/compiler.js'
     // Data
     w.data   = (el, key) => el.dataset && el.dataset[key]
     w.hsData = (el, key) => w.data(el, key) !== undefined
+
+    // Storage
+    w.ls  = {}
+    w.ls.get = (key) => localStorage.getItem(key)
+    w.ls.set = (key, value) => localStorage.setItem(key, value)
+    w.ls.rm = (key) => localStorage.removeItem(key)
+    w.ls.cls = () => localStorage.clear()
 
     // Attribute
     w.attr   = (el, key) => el.getAttribute(key)
@@ -57,6 +79,7 @@ import { compile } from './js/compiler.js'
     w.delay = (ms, fn, ...args) => {
         return setTimeout(() => fn(...args), ms)
     }
+    w.each = (els, fn) => els.forEach(fn)
 
     // UI Component init
     w.toast = (content, type, pos, autoClose=true) => {
