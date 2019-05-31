@@ -1,6 +1,6 @@
 {
   "name": "@devfe/joshua",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "dist/joshua.min.css",
   "scripts": {
     "test": "./node_modules/.bin/mocha src/js/*.test.js",

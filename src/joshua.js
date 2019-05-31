@@ -76,6 +76,15 @@ import { compile } from './js/compiler.js'
     w.html = (el, html) => (w.isStr(el) ? w.one(el) : el).innerHTML = html
     w.val = (el, value) => (w.isStr(el) ? w.one(el) : el).value = value
 
+    // Load
+    w.load = (url, callback) => {
+        let ref = d.getElementsByTagName('script')[0]
+        let script = d.createElement('script')
+        script.src = url
+        ref.parentNode.insertBefore(script, ref)
+        if (callback) script.onload = callback
+    }
+
     /* Event */
     w.adEvent = (el, ...args) => el.addEventListener(...args)
     w.rmEvent = (el, ...args) => el.removeEventListener(...args)
