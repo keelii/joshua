@@ -20,6 +20,7 @@ import { compile } from './js/compiler.js'
     /* Utils */
     w.toArr = o => o.length ? o : [o]
     w.isSel = str => /\s|:|\*|\[|\]|\^|~|\+|>/.test(str)
+    w.isStr = o => typeof o === 'string'
 
     /* DOM */
     w.bd = d.body
@@ -70,6 +71,10 @@ import { compile } from './js/compiler.js'
     w.stAttr = (el, key, value) => w.toArr(el).forEach(e => e.setAttribute(key, value))
     w.rmAttr = (el, key) => w.toArr(el).forEach(e => e.removeAttribute(key))
     w.tgAttr = (el, key) => w.hsAttr(el, key) ? w.rmAttr(el, key) : w.stAttr(el, key, true)
+
+    // HTML/Input
+    w.html = (el, html) => (w.isStr(el) ? w.one(el) : el).innerHTML = html
+    w.val = (el, value) => (w.isStr(el) ? w.one(el) : el).value = value
 
     /* Event */
     w.adEvent = (el, ...args) => el.addEventListener(...args)
