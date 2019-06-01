@@ -1,8 +1,8 @@
 //$FONT-CDN: "https://fonts.googleapis.cnpmjs.org/css";
 $FONT-CDN: "https://fonts.loli.net/css";
 
-@import url("#{$FONT-CDN}?family=PT+Serif:400|PT+Serif:400&font-display=swap");
-@import url("#{$FONT-CDN}?family=Source+Serif+Pro:400,600,700&font-display=swap");
+@import url("#{$FONT-CDN}?family=PT+Serif:400|PT+Serif:400&display=swap");
+@import url("#{$FONT-CDN}?family=Source+Serif+Pro:400,600,700&display=swap");
 
 html, body {
     font: var(--font-size)/var(--line-height) -apple-system, BlinkMacSystemFont, Arial, Helvetica;;
