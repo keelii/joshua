@@ -12,7 +12,7 @@
 
 ## Realworld users
 
-* [writing-different](//writing-different.com)
+* [wtdf.io](http://wtdf.io)
 * ...
 
 ## Thanks

@@ -18,9 +18,12 @@ import { compile } from './js/compiler.js'
     // w.isStr = o => typeof o === 'string'
 
     /* Utils */
+    w.type  = o => Object.prototype.toString.call(o).replace(/^\[object |\]$/g, '')
     w.toArr = o => o.length ? o : [o]
     w.isSel = str => /\s|:|\*|\[|\]|\^|~|\+|>/.test(str)
-    w.isStr = o => typeof o === 'string'
+    w.isStr = o => w.type(o) === 'String'
+    w.isArr = o => w.type(o) === 'Array'
+    w.isDOM = o => o instanceof HTMLElement
 
     /* DOM */
     w.bd = d.body
@@ -93,7 +96,19 @@ import { compile } from './js/compiler.js'
     w.delay = (ms, fn, ...args) => {
         return setTimeout(() => fn(...args), ms)
     }
-    w.each = (els, fn) => els.forEach(fn)
+    w.each = (entry, fn) => {
+        if (w.isStr(entry)) {
+            return w.all(entry).forEach(fn)
+        }
+        if (w.isArr(entry) || entry instanceof NodeList) {
+            return entry.forEach(fn)
+        }
+        if (w.isDOM(entry)) {
+            return fn(entry, 0)
+        }
+        throw new Error(`Unexcepted type [${entry}]`)
+    }
+
 
     // UI Component init
     w.toast = (content, type, pos, autoClose=true) => {
