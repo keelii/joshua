@@ -99,7 +99,7 @@ html, body {
         border-collapse: collapse;
 
         tr:nth-child(odd) {
-            background: $table-row-color;
+            //background: $table-row-color;
         }
         td, th {
             p, blockquote {
@@ -110,6 +110,7 @@ html, body {
             }
         }
         td, th {
+            border: 1px solid var(--color-blockquote-border);
             padding: var(--line-height-half);
         }
         th {

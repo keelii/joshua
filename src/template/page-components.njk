@@ -206,6 +206,20 @@
             <button class="btn small outline" data-click>2</button>
             <button class="btn small outline" data-click>3</button>
         </div>
+        <div id="test1"></div>
+        <div class="test1"></div>
+        <div id="test2" data-click></div>
+        <div id="test3" data-click="foo"></div>
+        <div style="padding: 10px; background: #ccc;" data-action="rmAttr(style)">
+            <a href="#none" id="test4" data-click>inner</a>
+        </div>
+
+        <script>
+            console.log(is(id('test1'), '#test1'))
+            console.log(is(one('.test1'), '.test1'))
+            console.log(is(one('#test2'), '[data-click]'))
+            console.log(is(one('#test3'), '[data-click="foo"]'))
+        </script>
     </fieldset>
 
 {% endblock body %}

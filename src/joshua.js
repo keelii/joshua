@@ -38,14 +38,38 @@ import { compile } from './js/compiler.js'
     // Node
     w.rm = (el) => el.remove()
     w.eq = (sel, idx, ctx) => w.all(sel, ctx)[idx]
-    w.parent = (node, cls) => {
-        if (!node || !node.classList) return null
+    w.is = (el, s) => {
+        // #id
+        if (s.startsWith('#')) {
+            return w.attr(el, 'id') === s.slice(1)
+        }
+        // .className
+        if (s.startsWith('.')) {
+            return w.hsClass(el, s.slice(1))
+        }
+        // [data-key="value"]
+        if (s.startsWith('[')) {
+            let [key, value] = s
+                .slice(1, s.length - 1)
+                .split('=')
+                .map(s => s.replace(/"|'/g, ''))
 
-        if (w.hsClass(node, cls)) {
+            if (value) {
+                return w.attr(el, key) === value
+            }  else {
+                return w.hsAttr(el, key)
+            }
+        }
+        return false
+    }
+    w.parent = (node, selector) => {
+        if (!node) return null
+
+        if (w.is(node, selector)) {
             return node
         } else {
             while(node.parentNode) {
-                return w.parent(node.parentNode, cls)
+                return w.parent(node.parentNode, selector)
             }
         }
     }
@@ -69,8 +93,8 @@ import { compile } from './js/compiler.js'
     w.ls.cls = () => localStorage.clear()
 
     // Attribute
-    w.attr   = (el, key) => el.getAttribute(key)
-    w.hsAttr = (el, key) => el.hasAttribute(key)
+    w.attr   = (el, key) => el.getAttribute && el.getAttribute(key)
+    w.hsAttr = (el, key) => el.hasAttribute && el.hasAttribute(key)
     w.stAttr = (el, key, value) => w.toArr(el).forEach(e => e.setAttribute(key, value))
     w.rmAttr = (el, key) => w.toArr(el).forEach(e => e.removeAttribute(key))
     w.tgAttr = (el, key) => w.hsAttr(el, key) ? w.rmAttr(el, key) : w.stAttr(el, key, true)
@@ -139,14 +163,15 @@ import { compile } from './js/compiler.js'
         let key = ns ? 'from' : type
         return `[data-${key}${ns?`="${ns}"`:''}]`
     }
-    function getSameAncestor(node, namespace) {
+
+    function getSameAncestor(node, key, val) {
         let parent = node.parentNode
         if (!parent) return null
 
         while(parent) {
-            let actions = w.hsData(parent, 'action')
+            let actions = w.hsData(parent, key)
                 ? parent
-                : w.one(getSelector(namespace, 'action'), parent)
+                : w.one(getSelector(val, key), parent)
             if (actions) {
                 return parent
             } else {
@@ -165,7 +190,7 @@ import { compile } from './js/compiler.js'
         // Event namespace
         let ns = w.data(target, 'click')
         // Ancestor element
-        let ancestor = getSameAncestor(target, ns)
+        let ancestor = getSameAncestor(target, 'action', ns)
 
         if (ancestor) {
             let triggers = w.all(getSelector(ns, 'click') , ancestor)
@@ -217,13 +242,12 @@ import { compile } from './js/compiler.js'
                 }
             }
         } else {
-            console.error('Can`t find action target.')
+            console.info('Can`t find action target.')
         }
     }
     function handleAction(type, target, fn) {
-        if (w.hsData(target, type)) {
-            fn(target)
-        }
+        let targetHandler = w.parent(target, `[data-${type}]`)
+        if (targetHandler) fn(targetHandler)
     }
 
     function domReady() {
