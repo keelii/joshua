@@ -69,6 +69,7 @@
 }
 
 // colors
+.success a, .warning a, .info a, .error a { color: var(--bg-color); }
 .success { @include colorBackground('success') }
 .warning { @include colorBackground('warning') }
 .info    { @include colorBackground('info') }
