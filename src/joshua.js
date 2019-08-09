@@ -60,6 +60,10 @@ import { compile } from './js/compiler.js'
                 return w.hsAttr(el, key)
             }
         }
+        // tagName
+        if (/\w+/.test(s)) {
+            return el.tagName.toLowerCase() === s.toLocaleString()
+        }
         return false
     }
     w.parent = (node, selector) => {
@@ -133,6 +137,33 @@ import { compile } from './js/compiler.js'
         throw new Error(`Unexcepted type [${entry}]`)
     }
 
+    w.throttle = (fn, wait = 200) => {
+        let inThrottle, lastFn, lastTime
+        return function() {
+            const context = this,
+                args = arguments
+            if (!inThrottle) {
+                fn.apply(context, args)
+                lastTime = Date.now()
+                inThrottle = true
+            } else {
+                clearTimeout(lastFn)
+                lastFn = setTimeout(function() {
+                    if (Date.now() - lastTime >= wait) {
+                        fn.apply(context, args)
+                        lastTime = Date.now()
+                    }
+                }, Math.max(wait - (Date.now() - lastTime), 0))
+            }
+        }
+    }
+    w.debounce = (fn, ms = 200) => {
+        let timeoutId
+        return function(...args) {
+            clearTimeout(timeoutId)
+            timeoutId = setTimeout(() => fn.apply(this, args), ms)
+        }
+    }
 
     // UI Component init
     w.toast = (content, type, pos, autoClose=true) => {

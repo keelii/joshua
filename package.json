@@ -1,6 +1,6 @@
 {
   "name": "@wtdf/joshua",
-  "version": "0.0.15",
+  "version": "0.0.18",
   "main": "dist/joshua.min.css",
   "scripts": {
     "test": "./node_modules/.bin/mocha src/js/*.test.js",
