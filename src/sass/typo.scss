@@ -133,6 +133,9 @@ html, body {
             //word-break: normal;
         }
     }
+    table code {
+        word-break: break-word;
+    }
     code {
         border-radius: 2px;
         padding: 0 0.2em;
