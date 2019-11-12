@@ -1,6 +1,6 @@
 {
   "name": "@wtdf/joshua",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "main": "dist/joshua.min.css",
   "scripts": {
     "test": "./node_modules/.bin/mocha src/js/*.test.js",
@@ -10,7 +10,7 @@
     "clean": "rm -rf dist",
     "rollup:test": "rollup src/js/compiler.js --file src/js/compiler.cjs.js --format cjs --watch",
     "rollup": "rollup src/joshua.js --file dist/joshua.js --format iife",
-    "cleancss": "cleancss -o dist/joshua.min.css dist/joshua.css && cleancss -o dist/joshua-core.min.css dist/joshua-core.css",
+    "cleancss": "cleancss -o dist/joshua.min.css dist/joshua.css && cleancss -o dist/joshua-core.min.css dist/joshua-core.css && cleancss -o dist/joshua-typo.min.css dist/joshua-typo.css",
     "build:css": "parcel build src/joshua*.scss && yarn cleancss",
     "build:js": "yarn rollup && ./node_modules/.bin/uglifyjs dist/joshua.js > dist/joshua.min.js",
     "build": "yarn clean && yarn build:css && yarn build:js",
@@ -21,6 +21,7 @@
     "semi": false,
     "singleQuote": true
   },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/@keelii" },
   "size-limit": [
     {
       "path": "dist/joshua.min.css"

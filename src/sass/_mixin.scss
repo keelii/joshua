@@ -11,6 +11,10 @@
     transition: all 0.2s ease;
 }
 
+@mixin baseFont {
+    font: var(--font-size)/var(--line-height) -apple-system, BlinkMacSystemFont, Arial, Helvetica;;
+}
+
 /**
 
 With border	With box-shadow

@@ -1,3 +1,5 @@
+@import './_mixin';
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -23,6 +25,10 @@ textarea {
     max-width: 100%;
     background: transparent;
     -webkit-appearance: none;
+}
+
+html, body {
+    @include baseFont();
 }
 
 fieldset {

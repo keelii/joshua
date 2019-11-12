@@ -1,0 +1,7 @@
+@import "./sass/vars.scss";
+@import "./sass/_mixin.scss";
+
+.typo { @include baseFont(); }
+@import "sass/typo";
+
+
