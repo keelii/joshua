@@ -21,9 +21,6 @@
     "semi": false,
     "singleQuote": true
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@keelii"
-  },
   "size-limit": [
     {
       "path": "dist/joshua.min.css"
