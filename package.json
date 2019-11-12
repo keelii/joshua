@@ -41,6 +41,7 @@
     "parcel-plugin-nunjucks": "^1.1.0",
     "rework": "^1.0.1",
     "rework-pure-grids": "^1.0.0",
+    "rollup": "^1.26.5",
     "sass": "^1.17.3",
     "size-limit": "^1.0.1",
     "uglify-es": "^3.3.9"
