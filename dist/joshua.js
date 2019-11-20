@@ -222,9 +222,9 @@
 
 			arr.forEach((child, idx) => {
 				if (parent.name) {
-					result += `${idx === 0 ? '': ', '}${traverseNode(child, parent)}`;
+					result += `${idx === 0 ? '': ', '}${traverseNode(child)}`;
 				} else {
-					result += `${idx === 0 ? '': '; '}${traverseNode(child, parent)}`;
+					result += `${idx === 0 ? '': '; '}${traverseNode(child)}`;
 				}
 			});
 
@@ -260,7 +260,7 @@
 			throw new TypeError(node.type)
 		}
 
-		return traverseNode(ast, null)
+		return traverseNode(ast)
 	}
 
 	function compile(input) {
